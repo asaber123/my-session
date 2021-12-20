@@ -42,6 +42,7 @@
             font-size: 1.7em;
         }
         &__nav{
+            position: absolute;
             
    
             @include phone{
