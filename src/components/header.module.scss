@@ -28,7 +28,6 @@
     &__content{
         color: $light;
         margin:0, auto;
-        max-width: 1920px;
         height: 100%;
         width: 100%;
         display: flex;
@@ -42,8 +41,12 @@
             font-size: 1.7em;
         }
         &__nav{
-            position: absolute;
-            
+            margin-right: 400px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            width: 400px;
+
    
             @include phone{
                 display: flex;
