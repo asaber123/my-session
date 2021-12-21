@@ -18,7 +18,10 @@
       @content;
     }
   }
-
+a{
+    text-decoration: none;
+    color: $light;
+}
 .header{
     background-color: $dark;
     height: 100px;
@@ -82,17 +85,16 @@
                 }
                 li{
                     margin:20px;
-                    text-decoration: none;
-                    color: $light;
                     @include phone{
                         transition: 0.3s ease all;
                     }
   
                 }
-                &:hover{
+
+                a:hover{
                     color: white;
                 }
-                &:active{
+                a:active{
                     color: white;
                 }
             }
