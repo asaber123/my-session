@@ -82,16 +82,12 @@
                 }
                 li{
                     margin:20px;
+                    text-decoration: none;
+                    color: $light;
                     @include phone{
                         transition: 0.3s ease all;
                     }
   
-                }
-                a{
-                    text-decoration: none;
-                    color: $light;
-                    
-
                 }
                 &:hover{
                     color: white;

@@ -31,10 +31,15 @@ function App() {
   return (
     <Router>
       <div className="App">
+        {/* Header shall always be viewed */}
         <Header />
-        <Home />
-        <PageOne />
-        <PageTwo />
+        {/* I only want to se he different pages when I'm in different urls. Therefore I create a path. 
+        I use switch to be able to go a page withoout also oncluding home page. Exact is used to only go to home page if noting else than / in the url is added */}
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/pageone" component={PageOne} />
+          <Route path="/pagetwo" component={PageTwo} />
+        </Switch>
       </div>
     </Router>
   );

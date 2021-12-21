@@ -4,6 +4,7 @@ import classes from './Header.module.scss';
 import '../App';
 import { BiMenu } from 'react-icons/bi';
 import { AiOutlineClose } from 'react-icons/ai';
+import {Link} from 'react-router-dom';
 
 function Header (){
     const [menuOpen, setMenuOpen] = useState(true);
@@ -18,15 +19,15 @@ function Header (){
 
                 <nav className={`${classes.header__content__nav} ${menuOpen? classes.isMenu:""}`}>
                     <ul>
-                        <li>
-                            <a href="/">Page one</a>
-                        </li>
-                        <li>
-                            <a href="/">Page two</a>
-                        </li>
-                        <li>
-                            <a href="/">Home</a>
-                        </li>
+                        <Link to='/pageone'>
+                        <li>Page one</li>
+                        </Link>
+                        <Link to='/pagetwo'>
+                        <li>Page two</li>
+                        </Link>
+                        <Link to='/'>
+                        <li>Home</li>
+                        </Link>
                     </ul>
                 </nav>
                 <div className={classes.header__content__toggle}>
