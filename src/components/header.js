@@ -1,11 +1,11 @@
 import React from 'react';
 import {useState} from 'react';
 import classes from './Header.module.scss';
-
+import '../App';
 import { BiMenu } from 'react-icons/bi';
 import { AiOutlineClose } from 'react-icons/ai';
 
-const Header = () => {
+function Header (){
     const [menuOpen, setMenuOpen] = useState(true);
     const menuTogglehandler = () =>{
         setMenuOpen((p) =>!p);
@@ -25,7 +25,7 @@ const Header = () => {
                             <a href="/">Page two</a>
                         </li>
                         <li>
-                            <a href="/">Logout</a>
+                            <a href="/">Home</a>
                         </li>
                     </ul>
                 </nav>

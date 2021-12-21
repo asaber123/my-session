@@ -1,6 +1,11 @@
 import axios from 'axios';
 import { useState } from 'react';
-import Layout from './components/Layout';
+import Header from './components/Header';
+import Home from './components/pages/Home';
+import PageOne from './components/pages/PageOne';
+import PageTwo from './components/pages/PageTwo';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
 
 
 function App() {
@@ -23,7 +28,16 @@ function App() {
   //   )
   // })
 
-  return <Layout></Layout>;
+  return (
+    <Router>
+      <div className="App">
+        <Header />
+        <Home />
+        <PageOne />
+        <PageTwo />
+      </div>
+    </Router>
+  );
 }
 
 export default App;
