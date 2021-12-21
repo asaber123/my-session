@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react';
-import Header from './components/header';
+import Layout from './components/Layout';
 
 
 function App() {
@@ -23,11 +23,7 @@ function App() {
   //   )
   // })
 
-  return (
-    <>
-      <Header />
-    </>
-  );
+  return <Layout></Layout>;
 }
 
 export default App;

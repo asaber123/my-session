@@ -1,6 +1,6 @@
 import React from 'react';
 import {useState} from 'react';
-import classes from './header.module.scss';
+import classes from './Header.module.scss';
 
 import { BiMenu } from 'react-icons/bi';
 import { AiOutlineClose } from 'react-icons/ai';
