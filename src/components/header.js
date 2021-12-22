@@ -16,19 +16,19 @@ function Header() {
         <header className={classes.header}>
             <div className={classes.header__content}>
                 <Link to='/'>
-                    <h2 className={classes.header__content__logo}>mySession</h2>
+                    <h2 className={classes.header__content__logo}>myLog</h2>
                 </Link>
 
                 <nav className={`${classes.header__content__nav} ${menuOpen ? classes.isMenu : ""}`}>
                     <ul>
-                        <Link to='/pageone'>
-                            <li>Page one</li>
+                        <Link to='/history'>
+                            <li>History</li>
                         </Link>
-                        <Link to='/pagetwo'>
-                            <li>Page two</li>
+                        <Link to='/analytics'>
+                            <li>Analytics</li>
                         </Link>
-                        <Link to='/'>
-                            <li>Home</li>
+                        <Link to='/mypage'>
+                            <li>My Page</li>
                         </Link>
                     </ul>
                 </nav>

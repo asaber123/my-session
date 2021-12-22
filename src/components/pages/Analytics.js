@@ -1,12 +1,12 @@
 import React from 'react';
 import '../../App';
 
-function PageTwo() {
+function Analytics() {
     return (
         <div>
-            <h1>Page two</h1>
+            <h1>Analytics</h1>
         </div>
     )
 }
 
-export default PageTwo
+export default Analytics

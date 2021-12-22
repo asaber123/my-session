@@ -1,8 +1,9 @@
 
 import Header from './components/Header';
 import Home from './components/pages/Home';
-import PageOne from './components/pages/PageOne';
-import PageTwo from './components/pages/PageTwo';
+import History from './components/pages/History';
+import Analytics from './components/pages/Analytics';
+import MyPage from './components/pages/MyPage';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 
@@ -18,8 +19,10 @@ function App() {
         I use switch to be able to go a page withoout also oncluding home page. Exact is used to only go to home page if noting else than / in the url is added */}
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/pageone" component={PageOne} />
-          <Route path="/pagetwo" component={PageTwo} />
+          <Route path="/history" component={History} />
+          <Route path="/analytics" component={Analytics} />
+          <Route path="/mypage" component={MyPage} />
+
         </Switch>
       </div>
     </Router>
