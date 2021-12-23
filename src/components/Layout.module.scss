@@ -1,7 +1,46 @@
 @import "./../styles/variables.scss";
+//Mixins
+@mixin small-phone {
+    @media (max-width: 520px) {
+      @content;
+    }
+  }
+  
+  @mixin phone {
+    @media (max-width: 750px) {
+      @content;
+    }
+  }
+  @mixin tablet {
+    @media (max-width: 1100px) {
+      @content;
+    }
+  }
 
 .container{
     height: 300px;
     width: 300px;
     background: $primary;
+}
+
+// Styling history page
+.history{
+    width: 900px;
+    padding:20px;
+    margin: auto;
+    background: $dark;
+    margin-top: 80px;
+    &__log{
+        background-color: $light;
+        border-radius: 7px;
+        margin-top: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 20px;
+    }
+    ul{
+        width: 33%;
+    }
+
 }
