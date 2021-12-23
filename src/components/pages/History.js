@@ -36,7 +36,7 @@ function History() {
     const arr = climbingRoutes.map((climbingRoutes => {
         
         return (
-            <div key="{climbingRoutes._id}" className={classes.history__log}>
+            <div key={climbingRoutes._id} className={classes.history__log}>
                 <ul>
                     {/* using moment package to format date */}
                     <li><b>{climbingRoutes.date}</b></li>
