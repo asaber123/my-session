@@ -27,6 +27,7 @@ a{
     height: 100px;
     width: 100%;
     margin: 0;
+    position: fixed;
 
     &__content{
         color: $light;

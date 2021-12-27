@@ -1,5 +1,6 @@
 
 import Header from './components/Header';
+import Footer from './components/Footer';
 import Home from './components/pages/Home';
 import History from './components/pages/History';
 import Analytics from './components/pages/Analytics';
@@ -24,6 +25,7 @@ function App() {
           <Route path="/mypage" component={MyPage} />
 
         </Switch>
+        <Footer />
       </div>
     </Router>
   );

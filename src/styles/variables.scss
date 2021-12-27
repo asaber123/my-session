@@ -19,3 +19,8 @@ $spacing-large:32px;
 $borderRatuius:12px;
 $borderHeight:100px;
 
+@mixin titles{
+    color: $dark;
+    border-bottom: 2px solid $dark;
+
+}
