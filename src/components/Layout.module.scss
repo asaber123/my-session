@@ -1,4 +1,5 @@
 @import "./../styles/variables.scss";
+@import "./../styles/index.scss";
 //Mixins
 @mixin small-phone {
     @media (max-width: 520px) {
@@ -17,6 +18,17 @@
     }
   }
 
+  //General rules
+  html{
+    background-color: $dark;
+    margin: 0px;
+    padding:0px;
+    box-sizing: border-box;
+  }
+  body{
+    background-color: white;
+  }
+
 .container{
     height: 300px;
     width: 300px;
@@ -29,7 +41,8 @@
     padding:20px;
     margin: auto;
     background: $dark;
-    margin-top: 80px;
+    margin-top: 200px;
+    margin-bottom: 200px;
     &__log{
         background-color: $light;
         border-radius: 7px;
@@ -73,27 +86,50 @@
         grid-row:5/6;
         }
     }
-    h2{
+    &__introText{
+      // margin-top: 50px;
+      margin-bottom: 100px;
+      text-align: center;
+      width: 600px;
+      margin: auto;
+      h2{
         color: $dark;
-        margin-top: 20px;
-        margin-bottom: 100px;
-        text-align: center;
         text-decoration: underline;
+        margin-bottom: 30px;
+        margin-top: 50px;
         }
-    &__features{
-        display: flex;
+    }
+    &__featuresSection{
+        display:  flex;
         justify-content: center;
-        flex-direction: row;
-        width: 70%;
-        margin:auto;
-        margin-bottom: 200px;
-        &__image{
+        flex-direction: column;
+        margin-top: 100px;
+        text-align: center;
+        h2{
+          color: $dark;
+          text-decoration: underline;
+          margin-bottom: 30px;
+          }
+        &__features{
+          display: flex;
+          justify-content: center;
+          flex-direction: row;
+          width: 70%;
+          margin:auto;
+          margin-bottom: 200px;
+
+          &__image{
             background: $dark;
             width: 40%;
-        }
-        &__text{
+          }
+          &__text{
             width: 40%;
             margin-left: 40px;
+            text-align: left;
+            &__line{
+              margin-bottom: 20px;
+            }
+          }
         }
     }
 

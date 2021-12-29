@@ -21,6 +21,7 @@ $borderHeight:100px;
 
 @mixin titles{
     color: $dark;
-    border-bottom: 2px solid $dark;
+    text-decoration: underline;
+    margin-bottom: 30px;
 
 }

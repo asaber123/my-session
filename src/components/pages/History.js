@@ -45,6 +45,7 @@ function History() {
     const arr = climbingRoutes.map((climbingRoutes => {
         
         return (
+            <main>
             <div key={climbingRoutes._id} className={classes.history__log}>
                 <ul>
                     {/* using moment package to format date */}
@@ -60,6 +61,7 @@ function History() {
                     <li>{climbingRoutes.location}</li>
                 </ul>
             </div>
+            </main>
 
 
         )
@@ -68,6 +70,7 @@ function History() {
     return (
         <div className="App">
             <div className="App">
+                
                 {/* <form className="search-form">
                     <input className="search-bar" type="text" value={search} onChange={updateSearch}/>
                     <button className="search-buttton" type="submit">Search</button>

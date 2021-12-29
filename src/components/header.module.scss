@@ -1,5 +1,6 @@
 //Importing variables
 @import './../styles/variables.scss';
+@import "./../styles/index.scss";
 
 //Mixins
 @mixin small-phone {
@@ -27,7 +28,7 @@ a{
     height: 100px;
     width: 100%;
     margin: 0;
-    position: fixed;
+    top:0;
 
     &__content{
         color: $light;

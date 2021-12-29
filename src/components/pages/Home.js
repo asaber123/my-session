@@ -7,6 +7,7 @@ import headerImg from '../img/climber1.png';
 
 function Home() {
     return (
+        <main>
         <div className={classes.home}>
             <div className={classes.home__header}>
                 <div className={classes.home__header__slogan3}>
@@ -19,24 +20,39 @@ function Home() {
                     <p>Track</p>
                 </div>
             </div>
-            <h2>What is my log?</h2>
-            <h2>Feautures</h2>
-        
-            <div className={classes.home__features}>
-                <div className={classes.home__features__image}>
+            <div className={classes.home__introText}>
+                <h2>What is my log?</h2>
+                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem</p>
+            </div>
+            <div className={classes.home__featuresSection}>
+                <h2>Feautures</h2>
 
-                </div>
-                <div className={classes.home__features__text}>
-                    <h3>Log your routes</h3>
-                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.  </p>
-                    <h3>Track your progress</h3>
-                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.  </p>
-                    <h3>Analyze your history</h3>
-                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.  </p>
-                    <h3>Exalarate your progression</h3>
+                <div className={classes.home__featuresSection__features}>
+                    <div className={classes.home__featuresSection__features__image}>
+
+                    </div>
+                    <div className={classes.home__featuresSection__features__text}>
+                        <div className={classes.home__featuresSection__features__text__line}>
+                        <h3>Log your routes</h3>
+                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.  </p>
+                        </div>
+                        <div className={classes.home__featuresSection__features__text__line}>
+                        <h3>Track your progress</h3>
+                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.  </p>
+                        </div>
+                        <div className={classes.home__featuresSection__features__text__line}>
+                        <h3>Analyze your history</h3>
+                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.  </p>
+                        </div>
+                        <div className={classes.home__featuresSection__features__text__line}>
+                        <h3>Exalarate your progression</h3>
+                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.  </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+        </main>
     )
 }
 
