@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 //Here I create the model schema
 
-const SignupTemplate = new.mongoose.Schema({
+const signupTemplate = new mongoose.Schema({
     fullName:{
         type: String,
         required: true
@@ -22,4 +22,4 @@ const SignupTemplate = new.mongoose.Schema({
 })
 
 //Exporting the model, taking two argumnet, the name of the table and the name of the schema that has been created. 
-module.exports = mongoose.model('myTable', SignupTemplate)
+module.exports = mongoose.model('myTable', signupTemplate)
