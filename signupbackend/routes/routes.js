@@ -19,10 +19,10 @@ router.post('/signup', (req, res) =>{
     signupUser.save()
     //converi´ting to json format
     .then(data=>{
-        response.json(data)
+        res.json(data)
     })
     .catch(error=>{
-        response.json(error)
+        res.json(error)
     })
 
 
