@@ -11,7 +11,7 @@ function Analytics() {
     const [climbingRoutes, setClimbingRoutes] = useState([]);
     //Use effect is going to run first time the page loads
     useEffect(async () => {
-        getClimbingRoutes();
+         getClimbingRoutes();
     }, []);
     //Function to get climbing routes fetched from rest-api
     const getClimbingRoutes = async () => {

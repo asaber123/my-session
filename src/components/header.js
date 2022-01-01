@@ -30,6 +30,9 @@ function Header() {
                         <Link to='/mypage'>
                             <li>My Page</li>
                         </Link>
+                        <Link to='/login'>
+                            <li>Login</li>
+                        </Link>
                     </ul>
                 </nav>
                 <div className={classes.header__content__toggle}>
