@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import '../../App';
+import axios from 'axios';
 
 class Login extends Component {
     constructor() {
@@ -10,6 +11,10 @@ class Login extends Component {
             userName: "",
             password: ""
         }
+        this.changeFullName= this.changeFullName.bind(this)
+        this.changeUserName= this.changeUserName.bind(this)
+        this.changePassword= this.changePassword.bind(this)
+        this.onSubmit = this.onSubmit.bind(this)
 
     }
 
@@ -31,10 +36,39 @@ class Login extends Component {
             password: event.target.value
         })
     }
+    //As a ´default, the whole page refresh when submit button is clicked. This function prevents it. We want the peron to be re-directed to the login page. 
+    onSubmit(event){
+        event.preventDefault()
+        //Evetything that the user has typed in into the input field and then sent into the onchange funciton is now stored in the 
+        //varibale registered whenn submit button has been clicked. 
+        const registered ={
+            fullName: this.state.fullName,
+            userName: this.state.userName,
+            password: this.state.password
+        }
+            //Now using axios to send a post request to the database. The variable registered is sending the object with all data. 
+    axios.post('http://localhost:3001/app/signup', registered)
+        .then(response=>console.log(response.data))
+
+        //Redirectiing user to logged in page
+        //window.location ='/'
+
+        //Setting the values in the input forms to zero again
+        this.setState = {
+            fullName: "",
+            userName: "",
+            password: ""
+        }
+    }
+
+
+
+
+
     render() {
         return (
             <div className='formDiv'>
-                <form>
+                <form onSubmit={this.onSubmit}>
                     <label>Full name:</label>
                     <input
                         type="text"
@@ -51,7 +85,7 @@ class Login extends Component {
 
                     <label>Password:</label>
                     <input
-                        type="text"
+                        type="password"
                         onChange={this.changePassword}
                         value={this.state.password}
                         className='form-control form-group' />
