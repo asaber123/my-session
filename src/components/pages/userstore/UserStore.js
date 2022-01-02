@@ -1,4 +1,4 @@
-import {extendObservable, observable} from 'mobx'
+import {extendObservable} from 'mobx';
 
 class UserStore{
     constructor(){
@@ -10,4 +10,4 @@ class UserStore{
         })
     }
 }
-export default UserStore
+export default new UserStore();
