@@ -100,6 +100,10 @@ class App extends React.Component{
         return(
           <div className="app">
           <Login/>
+          <Submitbutton
+          text={'Log out'}
+          disabled ={false}
+          onClick={() =>this.Logout()}/>
           </div>
         )
       
