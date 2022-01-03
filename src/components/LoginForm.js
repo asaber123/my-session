@@ -3,50 +3,50 @@ import InputField from './InputField';
 import Submitbutton from "./Submitbutton";
 import UserStore from "./pages/userstore/UserStore";
 
-class LoginForm extends React.Component{
-    constructor(props){
+class LoginForm extends React.Component {
+    constructor(props) {
         super(props);
-        this.state={
-            username:'',
-            password:'',
-            buttonDisabled:false 
+        this.state = {
+            username: '',
+            password: '',
+            buttonDisabled: false
         }
     }
-    setInputValue(property, val){
+    setInputValue(property, val) {
         //Making the input value maximum length to 12
         val = val.trim();
-        if(val.length>12){
+        if (val.length > 12) {
             return;
         }
         //By setting state to property it can resuse the same methods. 
         this.setState({
-            [property]:val
+            [property]: val
         })
     }
     //fucntion to reset form if something is not correct,(if user enter the wrong username of password)
-    resetForm(){
+    resetForm() {
         this.setState({
-            username:'',
-            password:'',
-            buttonDisabled:false 
+            username: '',
+            password: '',
+            buttonDisabled: false
         })
     }
     //This funciton runns when submit button is clicked
-    async login(){
-        if(!this.state.username){
+    async login() {
+        if (!this.state.username) {
             return;
         }
-        if(!this.state.password){
+        if (!this.state.password) {
             return;
         }
         //Makes the login button disabled so that the user can not doubleclick 
         this.setState({
-            buttonDisabled:true
+            buttonDisabled: true
         })
-        try{
+        try {
             let res = await fetch('/login', {
-                method:'post',
-                headers:{
+                method: 'post',
+                headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
 
@@ -60,36 +60,50 @@ class LoginForm extends React.Component{
             //Acess the result of the request
             let result = await res.json();
             //Setting the state to logged in and storing the username
-            if(result && result.sucess){
+            if (result && result.sucess) {
                 UserStore.isLoggedIn = true;
                 UserStore.username = result.username;
             }
             //If the password and username did not match, the form will be reset, so  the resetForm method will be starting. 
             //Also an error message will be returned and displayed to the screen. 
-            else if(result && result.sucess == false){
+            else if (result && result.sucess == false) {
                 this.resetForm();
                 alert(result.msg)
             }
         }
         //I fthere is any problems with fetching tio the API, then an error message wikl be returned to the console log. Also the form will be reset
-        catch(e){
+        catch (e) {
             console.log(e);
             this.resetForm();
         }
     }
-    render(){
-        return(
+    render() {
+        return (
             <div className="loginForm">
                 Log in
-                <InputField 
-                type='text'
-                placeholder ='Username'
-                value={this.state.username ? this.state.username:''}
-                //Passing the value of the input field into the funtion setInputValue. The property is username and the value is val. 
-                onChange={(val)=> this.setInputValue('username', val)}
+                <InputField
+                    type='text'
+                    placeholder='Username'
+                    value={this.state.username ? this.state.username : ''}
+                    //Passing the value of the input field into the funtion setInputValue. The property is username and the value is val. 
+                    onChange={(val) => this.setInputValue('username', val)}
 
                 />
+                <InputField
+                    type='password'
+                    placeholder='Password'
+                    value={this.state.password ? this.state.password : ''}
+                    //Passing the value of the input field into the funtion setInputValue. The property is username and the value is val. 
+                    onChange={(val) => this.setInputValue('password', val)}
+
+                />
+                <Submitbutton
+                    text='Login'
+                    disabled={this.state.buttonDisabled}
+                    onClick={() =>this.login()}
+                />
             </div>
+
         )
     }
 }
