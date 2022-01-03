@@ -13,6 +13,7 @@ import UserStore from './components/pages/userstore/UserStore';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import {observer} from 'mobx-react';
 import { observable } from 'mobx';
+import LoginForm from './components/LoginForm';
 
 class App extends React.Component{
 
@@ -99,7 +100,7 @@ class App extends React.Component{
       
         return(
           <div className="app">
-          <Login/>
+          <LoginForm/>
           <Submitbutton
           text={'Log out'}
           disabled ={false}

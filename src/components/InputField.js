@@ -11,7 +11,7 @@ class InputField extends React.Component{
                 placeholder={this.props.placeholder}
                 calue ={this.props.value}
                 // In the callback function is going to put the inpit of the value
-                onChange={ ()=>this.props.onChange(e.target.value)}
+                onChange={ (e)=>this.props.onChange(e.target.value)}
                 />
             </div>
         )

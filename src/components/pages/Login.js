@@ -1,5 +1,4 @@
 import React from "react";
-import InputField from '../InputField';
 
 
 class Login extends React.Component {
