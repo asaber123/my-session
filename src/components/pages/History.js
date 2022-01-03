@@ -19,7 +19,7 @@ function History() {
     }, []);
     //Function to get climbing routes fetched from rest-api
     const getClimbingRoutes = async()=>{
-        const response = await fetch(`http://localhost:3001/routes/`);
+        const response = await fetch(`http://localhost:3001/api/`);
         const data = await response.json();
         setClimbingRoutes(data)
     }
