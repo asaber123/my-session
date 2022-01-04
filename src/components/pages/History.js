@@ -8,10 +8,6 @@ import moment from 'moment';
 
 function History() {
     const [climbingRoutes, setClimbingRoutes] =useState([]);
-    //Making a search function
-    // const[search,setSearch] = useState('');
-    //If submit button is clicked then a new state is set
-    // const[query, setQuery] = useState['']
 
     //Use effect is going to run first time the page loads
     useEffect (async ()=>{

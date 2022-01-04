@@ -46,12 +46,14 @@ class Register extends Component {
             userName: this.state.userName,
             password: this.state.password
         }
+        console.log(registered)
             //Now using axios to send a post request to the database. The variable registered is sending the object with all data. 
     axios.post('http://localhost:3001/api/signup', registered)
-        .then(response=>console.log(response.data))
-
-        //Redirectiing user to logged in page
-        window.location ='/'
+        .then((response)=>{
+            console.log(response)
+        });
+        // //Redirectiing user to logged in page
+        // window.location ='/'
 
         //Setting the values in the input forms to zero again
         this.state = {
@@ -60,9 +62,6 @@ class Register extends Component {
             password: ""
         }
     }
-
-
-
 
 
     render() {

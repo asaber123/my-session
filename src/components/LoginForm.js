@@ -13,11 +13,6 @@ class LoginForm extends React.Component {
         }
     }
     setInputValue(property, val) {
-        //Making the input value maximum length to 12
-        val = val.trim();
-        if (val.length > 12) {
-            return;
-        }
         //By setting state to property it can resuse the same methods. 
         this.setState({
             [property]: val
@@ -44,7 +39,7 @@ class LoginForm extends React.Component {
             buttonDisabled: true
         })
         try {
-            let res = await fetch('/login', {
+            let res = await fetch('http://localhost:3001/api/login/', {
                 method: 'post',
                 headers: {
                     'Accept': 'application/json',
@@ -63,6 +58,7 @@ class LoginForm extends React.Component {
             if (result && result.sucess) {
                 UserStore.isLoggedIn = true;
                 UserStore.username = result.username;
+                console.log('loggedin')
             }
             //If the password and username did not match, the form will be reset, so  the resetForm method will be starting. 
             //Also an error message will be returned and displayed to the screen. 
@@ -100,7 +96,7 @@ class LoginForm extends React.Component {
                 <Submitbutton
                     text='Login'
                     disabled={this.state.buttonDisabled}
-                    onClick={() =>this.login()}
+                    onClick={() => this.login()}
                 />
             </div>
 
