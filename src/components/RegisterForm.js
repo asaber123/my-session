@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
-import '../../App';
+import '../App';
 import axios from 'axios';
 
 class Register extends Component {
@@ -51,7 +51,17 @@ class Register extends Component {
     axios.post('http://localhost:3001/api/signup', registered)
         .then((response)=>{
             console.log(response)
-        });
+        })
+        .catch((err)=> {
+            // The request was made and the server responded with a status code
+            // that falls out of the range of 2xx
+             if (err.response) {
+               console.log(err.response.data.message);
+               console.log(err.response.status);
+               console.log(err.response.headers);
+               alert(err.response.data.message)
+             }
+           })
         // //Redirectiing user to logged in page
         // window.location ='/'
 

@@ -4,10 +4,8 @@ import Home from './components/pages/Home';
 import History from './components/pages/History';
 import Analytics from './components/pages/Analytics';
 import MyPage from './components/pages/MyPage';
-import Login from './components/pages/Login';
-import Register from './components/pages/Register';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import LoginForm from './components/LoginForm';
+import RegisterPage from './components/pages/RegisterPage';
 
 
 
@@ -16,7 +14,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        {/* Header shall always be viewed */}
+        {/* Header shall always be viewed when user is logged in */}
         <Header />
         {/* I only want to se he different pages when I'm in different urls. Therefore I create a path. 
         I use switch to be able to go a page withoout also oncluding home page. Exact is used to only go to home page if noting else than / in the url is added */}
@@ -25,10 +23,7 @@ function App() {
           <Route path="/history" component={History} />
           <Route path="/analytics" component={Analytics} />
           <Route path="/mypage" component={MyPage} />
-          <Route path="/login" component={Login} />
-          <Route path="/register" component={Register} />
-          <Route path="/loginform" component={LoginForm} />
-
+          <Route path="/register" component={RegisterPage} />
         </Switch>
         <Footer />
       </div>

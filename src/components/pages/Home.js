@@ -1,8 +1,9 @@
 import React from 'react';
 import '../../App';
 import classes from '../Layout.module.scss';
-
+import LoginForm from '../LoginForm';
 import headerImg from '../img/climber1.png';
+
 
 
 function Home() {
@@ -10,6 +11,10 @@ function Home() {
         <main>
         <div className={classes.home}>
             <div className={classes.home__header}>
+                <div className={classes.home__header__loginform}>
+                    <h2>Login</h2>
+                <LoginForm/>
+                </div>
                 <div className={classes.home__header__slogan3}>
                     <p>Improve</p>
                 </div>
