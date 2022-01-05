@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
-import classes from './form.module.scss';
+import classes from './Form.module.scss';
 import '../App';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -91,7 +91,7 @@ class Login extends Component {
                     <br></br>
                     <input type='submit' className='btn btn-success' value='submit' />
                     <br></br><br></br>
-                    <p>Not a user yet? <Link to='/register'><a>Register</a></Link> </p>
+                    <p>Not a user yet? <a><Link to='/register'>Register</Link></a> </p>
 
 
                 </form>
