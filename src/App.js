@@ -4,6 +4,7 @@ import Home from './components/pages/Home';
 import History from './components/pages/History';
 import Analytics from './components/pages/Analytics';
 import MyPage from './components/pages/MyPage';
+import StartPage from './components/pages/Start';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import RegisterPage from './components/pages/RegisterPage';
 
@@ -19,11 +20,12 @@ function App() {
         {/* I only want to se he different pages when I'm in different urls. Therefore I create a path. 
         I use switch to be able to go a page withoout also oncluding home page. Exact is used to only go to home page if noting else than / in the url is added */}
         <Switch>
-          <Route path="/" exact component={Home} />
+          <Route path="/home" exact component={Home} />
           <Route path="/history" component={History} />
           <Route path="/analytics" component={Analytics} />
           <Route path="/mypage" component={MyPage} />
           <Route path="/register" component={RegisterPage} />
+          <Route path="/" component={StartPage} />
         </Switch>
         <Footer />
       </div>

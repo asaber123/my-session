@@ -47,9 +47,7 @@ class Login extends Component {
 
         axios.post('http://localhost:3001/api/login', loggedin)
             .then((response) => {
-                if (response.status == 200) {
-                    window.location = '/'
-                 }
+                console.log(response)
             })
             .catch((err)=> {
                 // Tf there is some errors, it will be shown in the console.log as well as the errro mesage from the API will be send to the sceen. 
@@ -61,10 +59,9 @@ class Login extends Component {
                  }
 
                })
-        // if (response.sucess) {
-        //     //Redirectiing user to logged in page
-        //     window.location = '/'
-        // }
+            
+            window.location = '/home'
+
 
 
 
