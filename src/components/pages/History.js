@@ -3,6 +3,7 @@ import '../../App';
 //import Axios from 'axios';
 import classes from '../Layout.module.scss';
 import moment from 'moment';
+import LogForm from '../LogForm';
 
 
 
@@ -28,6 +29,14 @@ function History() {
         const data = await response.json();
         getClimbingRoutes(data);
     }
+
+
+    
+
+
+
+
+
 
     // //when the button "uppdatera" is clicked, this funciton will start. 
     // const updateLog = async = (id) => {
@@ -101,6 +110,7 @@ function History() {
                     <div className={classes.history}>
                         <div className={classes.history_newLog}>
                            <h2>Add a new climbing route:</h2>
+                           <LogForm/>
                         </div>
 
                         <div className={classes.history_previousLogs}>
@@ -112,24 +122,7 @@ function History() {
                 </div>
             </div>
         );
-    } else {
-        return (
-            <div className="App">
-                <div className="App">
-
-                    {/* <form className="search-form">
-                    <input className="search-bar" type="text" value={search} onChange={updateSearch}/>
-                    <button className="search-buttton" type="submit">Search</button>
-                </form> */}
-                    <div className={classes.history}>
-                        <h1>Sorry you do not have acess</h1>
-
-
-                    </div>
-                </div>
-            </div>
-        );
-    }
+    } 
 }
 
 
