@@ -48,7 +48,7 @@ class Register extends Component {
         }
         console.log(registered)
             //Now using axios to send a post request to the database. The variable registered is sending the object with all data. 
-    axios.post('http://localhost:3001/api/signup', registered)
+    axios.post('/signup', registered)
         .then((response)=>{
             console.log(response)
         })

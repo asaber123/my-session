@@ -22,11 +22,11 @@ function History() {
     //when delete button is clicked this funciton starts. 
     const deleteLog = async (id) => {
         //Fetching the rest-api with delete request. 
-         const response = await fetch('ttp://localhost:3001/api/' + id, {
+        const response = await fetch('ttp://localhost:3001/api/' + id, {
             method: 'DELETE',
         })
         const data = await response.json();
-        getClimbingRoutes(data );
+        getClimbingRoutes(data);
     }
 
     // //when the button "uppdatera" is clicked, this funciton will start. 
@@ -87,23 +87,41 @@ function History() {
 
         )
     }));
-
-    return (
-        <div className="App">
+    if (localStorage.getItem('token')) {
+        return (
             <div className="App">
+                <div className="App">
 
-                {/* <form className="search-form">
+                    {/* <form className="search-form">
                     <input className="search-bar" type="text" value={search} onChange={updateSearch}/>
                     <button className="search-buttton" type="submit">Search</button>
                 </form> */}
-                <div className={classes.history}>
-                    <h1>This week:</h1>
+                    <div className={classes.history}>
+                        <h1>This week:</h1>
 
-                    {arr}
+                        {arr}
+                    </div>
                 </div>
             </div>
-        </div>
-    );
+        );
+    }else{
+        return (
+            <div className="App">
+                <div className="App">
+
+                    {/* <form className="search-form">
+                    <input className="search-bar" type="text" value={search} onChange={updateSearch}/>
+                    <button className="search-buttton" type="submit">Search</button>
+                </form> */}
+                    <div className={classes.history}>
+                        <h1>Sorry you do not have acess</h1>
+
+
+                    </div>
+                </div>
+            </div>
+        );
+    }
 }
 
 

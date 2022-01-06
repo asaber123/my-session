@@ -41,13 +41,19 @@ class Login extends Component {
             userName: this.state.userName,
             password: this.state.password
         }
-        console.log(loggedin)
         //Now using axios to send a post request to the database. The variable registered is sending the object with all data. 
         //If response status is ok then the page will be re-deracted to home page. 
 
-        axios.post('http://localhost:3001/api/login', loggedin)
+        axios.post('/login', loggedin)
             .then((response) => {
-                console.log(response)
+                localStorage.setItem('token', response.data.message.token)
+                localStorage.setItem('username', response.data.message.username)
+                this.setState({
+                    user: response.data
+                })
+                //localStorage.setItem('username', res.)
+                console.log('username:', response.data.message.username, 'token:',response.data.message.token)
+                window.location = '/home'
             })
             .catch((err)=> {
                 // Tf there is some errors, it will be shown in the console.log as well as the errro mesage from the API will be send to the sceen. 
@@ -60,7 +66,7 @@ class Login extends Component {
 
                })
             
-            window.location = '/home'
+            
 
 
 
