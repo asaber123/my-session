@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import '../App';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+
 
 class Register extends Component {
     constructor() {
@@ -63,14 +65,8 @@ class Register extends Component {
              }
            })
         // //Redirectiing user to logged in page
-        // window.location ='/'
+        window.location ='/'
 
-        //Setting the values in the input forms to zero again
-        this.state = {
-            fullName: "",
-            userName: "",
-            password: ""
-        }
     }
 
 
@@ -98,8 +94,10 @@ class Register extends Component {
                         onChange={this.changePassword}
                         value={this.state.password}
                         className='form-control form-group' />
-
-                    <input type='submit' className='btn btn-danger btn block' value='submit' />
+                    <br></br>
+                        <input type='submit' className='btn btn-success' value='submit' />
+                        <br></br><br></br>
+                        <p>Alreddy a user? <a><Link to='/'>Login</Link></a> </p>
                 </form>
             </div>
         )

@@ -11,27 +11,42 @@ import RegisterPage from './components/pages/RegisterPage';
 
 
 function App() {
-
-  return (
-    <Router>
-      <div className="App">
-        {/* Header shall always be viewed when user is logged in */}
-        <Header />
-        {/* I only want to se he different pages when I'm in different urls. Therefore I create a path. 
-        I use switch to be able to go a page withoout also oncluding home page. Exact is used to only go to home page if noting else than / in the url is added */}
-        <Switch>
-          <Route path="/home" exact component={Home} />
-          <Route path="/history" component={History} />
-          <Route path="/analytics" component={Analytics} />
-          <Route path="/mypage" component={MyPage} />
-          <Route path="/register" component={RegisterPage} />
-          <Route path="/" component={StartPage} />
-        </Switch>
-        <Footer />
-      </div>
-    </Router>
-  );
+  if (localStorage.getItem('token')) {
+    return (
+      <Router>
+        <div className="App">
+          {/* Header shall always be viewed when user is logged in */}
+          <Header />
+          {/* I only want to se he different pages when I'm in different urls. Therefore I create a path. 
+          I use switch to be able to go a page withoout also oncluding home page. Exact is used to only go to home page if noting else than / in the url is added */}
+          <Switch>
+            <Route path="/home" exact component={Home} />
+            <Route path="/history" component={History} />
+            <Route path="/analytics" component={Analytics} />
+            <Route path="/mypage" component={MyPage} />
+            <Route path="/register" component={RegisterPage} />
+            <Route path="/" component={StartPage} />
+          </Switch>
+          <Footer />
+        </div>
+      </Router>
+    )
+  }
+  else {
+    return (
+      <Router>
+        <div className="App">
+          <Switch>
+            <Route path="/register" component={RegisterPage} />
+            <Route path="/" component={StartPage} />
+          </Switch>
+          <Footer />
+        </div>
+      </Router>
+    )
+  }
 }
+
 
 export default App;
 
@@ -134,7 +149,7 @@ export default App;
 
 //         );
 //       }
-      
+
 //         return(
 //           <div className="app">
 //           <LoginForm/>
@@ -144,7 +159,7 @@ export default App;
 //           onClick={() =>this.Logout()}/>
 //           </div>
 //         )
-      
+
 //     }
 //   }
 // }

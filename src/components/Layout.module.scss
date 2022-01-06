@@ -173,15 +173,32 @@
       display: grid;
       grid-template-columns: repeat(8, 1fr);
       grid-template-rows: repeat(8,1fr);
+      &__logo{
+        grid-column: 4/6;
+        grid-row: 2/3; 
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        color: white;
+        h1{
+          font-size: 3.5em;
+        }
+        img{
+          width: 100px;
+          height: auto;
+          margin-right: 30px;
+        }  
+      }
       &__loginform{
         grid-column: 4/6;
-        grid-row: 3/7;
+        grid-row: 4/8;
         background-color: rgba(255, 255, 255, 0.582);
         padding-bottom: 50px;
         padding-left:20px;
         padding-right: 20px;
         border-radius: 10px;
         font-weight: bold;
+        margin-bottom: 40px;
         a{
           text-decoration: underline;
           color: $dark;
@@ -195,12 +212,16 @@
       grid-row:6/7;
       font-weight: bold;
       font-size: 1.5em;
+      margin-left: 40px;
+
       }
       &__slogan2{
       grid-column: 7/9;
       grid-row:5/6;
       font-weight: bold;
       font-size: 1.5em;
+      margin-left: 40px;
+
 
       }
       &__slogan3{
@@ -208,6 +229,8 @@
       grid-row:4/5;
       font-weight: bold;
       font-size: 1.5em;
+      margin-left: 40px;
+
 
       }
   }

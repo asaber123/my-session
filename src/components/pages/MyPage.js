@@ -1,19 +1,16 @@
-import React from 'react'
+import React from 'react';
+import classes from '../Layout.module.scss';
+import axios from 'axios';
 
-function MyPage()  {
-    if (localStorage.getItem('token').length > 1) {
-    return (
-        <div>
-            
-        </div>
-    )
-    }else{
+
+function MyPage() {
+
         return (
-            <div>
-                sorry you do not have acess
+            <div className={classes.mypage}>
+
             </div>
-        ) 
-    }
-}
+        )
+    } 
+
 
 export default MyPage

@@ -52,57 +52,57 @@ class Login extends Component {
                     user: response.data
                 })
                 //localStorage.setItem('username', res.)
-                console.log('username:', response.data.message.username, 'token:',response.data.message.token)
+                console.log('username:', response.data.message.username, 'token:', response.data.message.token)
                 window.location = '/home'
             })
-            .catch((err)=> {
+            .catch((err) => {
                 // Tf there is some errors, it will be shown in the console.log as well as the errro mesage from the API will be send to the sceen. 
-                 if (err.response) {
-                   console.log(err.response.data.message);
-                   console.log(err.response.status);
-                   console.log(err.response.headers);
-                   alert(err.response.data.message)
-                 }
+                if (err.response) {
+                    console.log(err.response.data.message);
+                    console.log(err.response.status);
+                    console.log(err.response.headers);
+                    alert(err.response.data.message)
+                }
 
-               })
-            
-            
-
-
-
+            })
 
     }
 
 
     render() {
-        return (
-            <div className={classes.formDiv}>
-                
-                <form onSubmit={this.onSubmit}>
+        if (localStorage.getItem('token')) {
+            window.location = '/home'
+        }
+        else {
+            return (
+                <div className={classes.formDiv}>
 
-                    <label>Username:</label>
-                    <input
-                        type="text"
-                        onChange={this.changeUserName}
-                        value={this.state.userName}
-                        className='form-control form-group' />
+                    <form onSubmit={this.onSubmit}>
 
-                    <label>Password:</label>
-                    <input
-                        type="password"
-                        onChange={this.changePassword}
-                        value={this.state.password}
-                        className='form-control form-group' />
-                    
-                    <br></br>
-                    <input type='submit' className='btn btn-success' value='submit' />
-                    <br></br><br></br>
-                    <p>Not a user yet? <a><Link to='/register'>Register</Link></a> </p>
+                        <label>Username:</label>
+                        <input
+                            type="text"
+                            onChange={this.changeUserName}
+                            value={this.state.userName}
+                            className='form-control form-group' />
+
+                        <label>Password:</label>
+                        <input
+                            type="password"
+                            onChange={this.changePassword}
+                            value={this.state.password}
+                            className='form-control form-group' />
+
+                        <br></br>
+                        <input type='submit' className='btn btn-success' value='submit' />
+                        <br></br><br></br>
+                        <p>Not a user yet? <a><Link to='/register'>Register</Link></a> </p>
 
 
-                </form>
-            </div>
-        )
+                    </form>
+                </div>
+            )
+        }
     }
 }
 

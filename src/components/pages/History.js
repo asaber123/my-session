@@ -87,7 +87,9 @@ function History() {
 
         )
     }));
-    if (localStorage.getItem('token')) {
+    const token = localStorage.getItem('token');
+    const username = localStorage.getItem('username')
+    if (token) {
         return (
             <div className="App">
                 <div className="App">
@@ -97,14 +99,20 @@ function History() {
                     <button className="search-buttton" type="submit">Search</button>
                 </form> */}
                     <div className={classes.history}>
-                        <h1>This week:</h1>
+                        <div className={classes.history_newLog}>
+                           <h2>Add a new climbing route:</h2>
+                        </div>
 
-                        {arr}
+                        <div className={classes.history_previousLogs}>
+                            <h2>My log:</h2>
+                            {arr}
+                        </div>
+
                     </div>
                 </div>
             </div>
         );
-    }else{
+    } else {
         return (
             <div className="App">
                 <div className="App">

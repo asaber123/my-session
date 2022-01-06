@@ -5,8 +5,16 @@ import '../App';
 import { BiMenu } from 'react-icons/bi';
 import { AiOutlineClose } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
+import { NavDropdown } from 'react-bootstrap';
 
 function Header() {
+    let username = localStorage.getItem('username');
+    function logout() {
+        localStorage.clear();
+        window.location = '/';
+
+    }
+
     const [menuOpen, setMenuOpen] = useState(true);
     const menuTogglehandler = () => {
         setMenuOpen((p) => !p);
@@ -27,9 +35,9 @@ function Header() {
                         <Link to='/analytics'>
                             <li>Analytics</li>
                         </Link>
-                        <Link to='/mypage'>
-                            <li>My Page</li>
-                        </Link>
+                        <NavDropdown title={username} id="logout">
+                            <NavDropdown.Item bg="dark" onClick={logout}>Logout</NavDropdown.Item>
+                        </NavDropdown>
                     </ul>
                 </nav>
                 <div className={classes.header__content__toggle}>

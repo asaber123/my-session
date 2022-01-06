@@ -2,6 +2,7 @@ import React from 'react';
 import '../../App';
 import classes from '../Layout.module.scss';
 import LoginForm from '../LoginForm';
+import logo from '../img/myLog.png';
 
 
 
@@ -10,6 +11,9 @@ function Start() {
         <main>
         <div className={classes.start}>
             <div className={classes.start__header}>
+                <div className={classes.start__header__logo}>
+                <img src={logo} alt="Logo" /> <h1>MyLog</h1>
+                    </div>
                 <div className={classes.start__header__loginform}>
                     <h2>Login</h2>
                 <LoginForm/>
