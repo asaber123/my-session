@@ -4,6 +4,7 @@ import '../../App';
 import classes from '../Layout.module.scss';
 import moment from 'moment';
 import LogForm from '../LogForm';
+import axios from 'axios';
 
 
 
@@ -21,22 +22,15 @@ function History() {
         setClimbingRoutes(data)
     }
     //when delete button is clicked this funciton starts. 
-    const deleteLog = async (id) => {
+    const deleteLog = async (id)=>{
         //Fetching the rest-api with delete request. 
-        const response = await fetch('ttp://localhost:3001/api/' + id, {
-            method: 'DELETE',
+        const response = await axios.delete(`http://localhost:3001/api/` + id)
+        .then((response) => {
+            console.log(response)
+            getClimbingRoutes()
+
         })
-        const data = await response.json();
-        getClimbingRoutes(data);
     }
-
-
-    
-
-
-
-
-
 
     // //when the button "uppdatera" is clicked, this funciton will start. 
     // const updateLog = async = (id) => {
@@ -88,7 +82,7 @@ function History() {
                         <li> <b>Location: </b></li>
                         <li>{climbingRoutes.location}</li>
                     </ul>
-                    <button onlick={() => deleteLog(climbingRoutes._id)}> Ta bort</button>
+                    <button onClick={deleteLog(climbingRoutes._id)}> Ta bort</button>
                     <button onlick={console.log(climbingRoutes._id)}> Updatera</button>
                 </div>
             </main>
