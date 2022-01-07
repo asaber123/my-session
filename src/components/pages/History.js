@@ -67,7 +67,6 @@ function History() {
     const arr = climbingRoutes.map((climbingRoutes => {
 
         return (
-            <main>
                 <div key={climbingRoutes._id} className={classes.history__log}>
                     <ul>
                         {/* using moment package to format date */}
@@ -85,7 +84,6 @@ function History() {
                     <button onClick={deleteLog(climbingRoutes._id)}> Ta bort</button>
                     <button onlick={console.log(climbingRoutes._id)}> Updatera</button>
                 </div>
-            </main>
 
 
         )
