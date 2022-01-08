@@ -6,7 +6,15 @@ import moment from 'moment';
 import LogForm from '../LogForm';
 import axios from 'axios';
 
-
+function authHeader(){
+    const token = localStorage.token
+    console.log(`Token: ${token}`)
+    if (token){
+        return {Authorization: `Bearer ${token}`};
+    } else {
+        return {};
+    }
+}
 
 function History() {
     const [climbingRoutes, setClimbingRoutes] = useState([]);
@@ -17,18 +25,21 @@ function History() {
     }, []);
     //Function to get climbing routes fetched from rest-api
     const getClimbingRoutes = async () => {
-        const response = await fetch(`http://localhost:3001/api/`);
+        const response = await fetch(`http://localhost:3001/api/`, {
+            headers: authHeader()
+        });
         const data = await response.json();
         setClimbingRoutes(data)
     }
     //when delete button is clicked this funciton starts. 
     const deleteLog = async (id)=>{
         //Fetching the rest-api with delete request. 
-        const response = await axios.delete(`http://localhost:3001/api/` + id)
+        const response = await axios.delete(`http://localhost:3001/api/` + id, {
+            headers: authHeader()
+        })
         .then((response) => {
             console.log(response)
             getClimbingRoutes()
-
         })
     }
 
@@ -64,25 +75,24 @@ function History() {
     // }
 
     // //Making an array that contains all data that has been fetched. 
-    const arr = climbingRoutes.map((climbingRoutes => {
-
+    const arr = climbingRoutes.map((climbingRoute => {
         return (
-                <div key={climbingRoutes._id} className={classes.history__log}>
+                <div key={climbingRoute._id} className={classes.history__log}>
                     <ul>
                         {/* using moment package to format date */}
-                        <li><b>{moment(climbingRoutes.date).format('LL')}</b></li>
-                        <li><b>Grade:</b> {climbingRoutes.grade}</li>
+                        <li><b>{moment(climbingRoute.date).format('LL')}</b></li>
+                        <li><b>Grade:</b> {climbingRoute.grade}</li>
                     </ul>
                     <ul>
-                        <li><b>Name of route:</b> {climbingRoutes.name}</li>
-                        <li><b>Type of route:</b> {climbingRoutes.grade}</li>
+                        <li><b>Name of route:</b> {climbingRoute.name}</li>
+                        <li><b>Type of route:</b> {climbingRoute.grade}</li>
                     </ul>
                     <ul>
                         <li> <b>Location: </b></li>
-                        <li>{climbingRoutes.location}</li>
+                        <li>{climbingRoute.location}</li>
                     </ul>
-                    <button onClick={deleteLog(climbingRoutes._id)}> Ta bort</button>
-                    <button onlick={console.log(climbingRoutes._id)}> Updatera</button>
+                    <button onClick={() => {deleteLog(climbingRoute._id)}}>Ta bort</button>
+                    <button onClick={() => {console.log(climbingRoute._id)}}>Updatera</button>
                 </div>
 
 

@@ -5,7 +5,15 @@ import moment from 'moment';
 import BarChart from './charts/BarChart';
 import Table from './charts/Table';
 
-
+function authHeader(){
+    const token = localStorage.token
+    console.log(`Token: ${token}`)
+    if (token){
+        return {Authorization: `Bearer ${token}`};
+    } else {
+        return {};
+    }
+}
 
 function Analytics() {
     const [climbingRoutes, setClimbingRoutes] = useState([]);
@@ -15,7 +23,9 @@ function Analytics() {
     }, []);
     //Function to get climbing routes fetched from rest-api
     const getClimbingRoutes = async () => {
-        const response = await fetch(`/`);
+        const response = await fetch(`/`, {
+            headers: authHeader()
+        });
         const data = await response.json();
         setClimbingRoutes(data);
         console.log(data);
