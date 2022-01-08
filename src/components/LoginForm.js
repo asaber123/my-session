@@ -44,7 +44,7 @@ class Login extends Component {
         //Now using axios to send a post request to the database. The variable registered is sending the object with all data. 
         //If response status is ok then the page will be re-deracted to home page. 
 
-        axios.post('/login', loggedin)
+        axios.post('/auth/login', loggedin)
             .then((response) => {
                 localStorage.setItem('token', response.data.message.token)
                 localStorage.setItem('username', response.data.message.username)

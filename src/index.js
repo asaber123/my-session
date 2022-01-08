@@ -4,7 +4,7 @@ import App from './App';
 import "./styles/index.scss";
 import axios from 'axios';
 
-axios.defaults.baseURL='http://localhost:3001/api';
+axios.defaults.baseURL='http://localhost:3001';
 
 
 ReactDOM.render(
