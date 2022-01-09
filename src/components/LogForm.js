@@ -62,7 +62,9 @@ class LogForm extends Component {
             name: this.state.name,
             location: this.state.location,
             date: this.state.date,
-            typeOfRoute: this.state.typeOfRoute
+            typeOfRoute: this.state.typeOfRoute,
+            user: localStorage.getItem('username')
+ 
 
         }
         console.log(climbingLog)
