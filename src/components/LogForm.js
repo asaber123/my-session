@@ -3,6 +3,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import '../App';
 import axios from 'axios';
 
+function headers(){
+    const headers = {'Content-Type': 'application/json'}
+    const token = localStorage.token
+    if (token){
+        headers['Authorization'] = `Bearer ${token}`;
+    }
+    return headers;
+}
 
 class LogForm extends Component {
     constructor() {
@@ -12,7 +20,8 @@ class LogForm extends Component {
             name: "",
             location: "",
             date: "",
-            typeOfRoute: ""
+            typeOfRoute: "",
+            user: ""
 
         }
         this.changeGrade = this.changeGrade.bind(this)
@@ -54,6 +63,7 @@ class LogForm extends Component {
     }
     //As a ´default, the whole page refresh when submit button is clicked. This function prevents it. We want the peron to be re-directed to the login page. 
     onSubmit(event) {
+        //Doing a prevent Default to prevent page refresh.
         event.preventDefault()
         //Evetything that the user has typed in into the input field and then sent into the onchange funciton is now stored in the 
         //varibale registered whenn submit button has been clicked. 
@@ -62,14 +72,16 @@ class LogForm extends Component {
             name: this.state.name,
             location: this.state.location,
             date: this.state.date,
-            typeOfRoute: this.state.typeOfRoute,
-            user: localStorage.getItem('username')
- 
+            typeOfRoute: this.state.typeOfRoute
 
         }
         console.log(climbingLog)
         //Now using axios to send a post request to the database. The variable registered is sending the object with all data. 
-        axios.post('', climbingLog)
+        fetch('http://localhost:3001/api/', {
+            body: JSON.stringify(climbingLog),
+            method: "POST",
+            headers: headers()
+        })
             .then((response) => {
                 console.log(response)
                 window.location = '/history'
@@ -106,6 +118,51 @@ class LogForm extends Component {
                         onChange={this.changeGrade}
                         value={this.state.grade}
                         className='form-control form-group' />
+
+
+                    {/* <select class="form-select" aria-label="Default select example">
+                        <option selected>Grade:</option>
+                        <option value="1">6</option>
+                        <option value="2">6a</option>
+                        <option value="3">6b</option>
+                        <option value="3">6c</option>
+                        <option value="2">7a</option>
+                        <option value="3">7b</option>
+                        <option value="3">7c</option>
+                        <option value="2">8a</option>
+                        <option value="3">8b</option>
+                        <option value="3">8c</option>
+                        <option value="2">9a</option>
+                        <option value="3">9b</option>
+                        <option value="3">9c</option>
+                        <option value="3">Project/undefined</option>
+                    </select> */}
+
+                    {/* 
+                    <div class="form-check">
+                        <input 
+                        class="form-check-input" 
+                        type="radio" 
+                        name="flexRadioDefault" 
+                        id="flexRadioDefault1"
+                        onChange={this.changeLocation}
+                        value={this.state.location}/>
+                        <label class ="form-check-label" for="flexRadioDefault1">
+                        Indoor
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" 
+                        type="radio"                         
+                        onChange={this.changeLocation}
+                        value={this.state.location}
+                        name="flexRadioDefault" 
+                        id="flexRadioDefault2" 
+                        checked/>
+                        <label class ="form-check-label" for="flexRadioDefault2">
+                        Outdoor
+                        </label>
+                    </div> */}
 
                     <label>location:</label>
                     <input

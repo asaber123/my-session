@@ -9,7 +9,6 @@ import axios from 'axios';
 
 function authHeader(){
     const token = localStorage.token
-    console.log(`Token: ${token}`)
     if (token){
         return {Authorization: `Bearer ${token}`};
     } else {
