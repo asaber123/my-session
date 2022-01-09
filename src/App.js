@@ -3,7 +3,6 @@ import Footer from './components/Footer';
 import Home from './components/pages/Home';
 import History from './components/pages/History';
 import Analytics from './components/pages/Analytics';
-import MyPage from './components/pages/MyPage';
 import StartPage from './components/pages/Start';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import RegisterPage from './components/pages/RegisterPage';
@@ -23,7 +22,6 @@ function App() {
             <Route path="/home" exact component={Home} />
             <Route path="/history" component={History} />
             <Route path="/analytics" component={Analytics} />
-            <Route path="/mypage" component={MyPage} />
             <Route path="/register" component={RegisterPage} />
             <Route path="/" component={StartPage} />
           </Switch>

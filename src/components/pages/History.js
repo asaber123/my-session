@@ -5,6 +5,7 @@ import classes from '../Layout.module.scss';
 import moment from 'moment';
 import LogForm from '../LogForm';
 import axios from 'axios';
+//import { DELETE } from 'mobx/dist/internal';
 
 function authHeader(){
     const token = localStorage.token
@@ -32,47 +33,20 @@ function History() {
         setClimbingRoutes(data)
     }
     //when delete button is clicked this funciton starts. 
-    const deleteLog = async (id)=>{
+    const deleteLog= (id) =>{
         //Fetching the rest-api with delete request. 
-        const response = await axios.delete(`http://localhost:3001/api/` + id, {
+        axios.delete(`http://localhost:3001/api/${id}`,{
             headers: authHeader()
         })
         .then((response) => {
-            console.log(response)
+            console.log('deleted', response)
             getClimbingRoutes()
+        })
+        .catch((err)=>{
+            console.log(err);
         })
     }
 
-    // //when the button "uppdatera" is clicked, this funciton will start. 
-    // const updateLog = async = (id) => {
-    //     //Declaring variables again to get the value from the new data filled into the form
-    //     const nameInput = document.getElementById("name");
-    //     const descriptionInput = document.getElementById("description");
-    //     const linkInput = document.getElementById("link");
-    //     const universityInput = document.getElementById("university");
-
-    //     const name = nameInput.value;
-    //     const description = descriptionInput.value;
-    //     const link = linkInput.value;
-    //     const university = universityInput.value;
-    //     //Adding dtaa into the object data. 
-    //     let data = { 'name': name, 'link': link, 'description': description, 'university': university };
-    //     //Doing a fetch call to the api courses with the method put and an id sent. 
-    //     fetch("http://asaberglund.se/rest-projekt/courses.php?id=" + id, {
-    //         method: 'PUT',
-    //         body: JSON.stringify(data)
-    //     })
-    //         .then(response => response.json())
-    //         .then(course => {
-    //             //After method is sent the function getCourses will start again. 
-    //             getCourses();
-    //         })
-    //         .catch(error => {
-    //             //If something goes wrong, an error message will be shown. 
-    //             console.log('Felmeddelande:', error);
-    //         })
-
-    // }
 
     // //Making an array that contains all data that has been fetched. 
     const arr = climbingRoutes.map((climbingRoute => {
