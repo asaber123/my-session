@@ -2,28 +2,21 @@ import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import '../App';
 import axios from 'axios';
+import fetchHeaders, { postRoute, updateRoute } from './ApiClient';
 
-function headers(){
-    const headers = {'Content-Type': 'application/json'}
-    const token = localStorage.token
-    if (token){
-        headers['Authorization'] = `Bearer ${token}`;
-    }
-    return headers;
-}
 
 class LogForm extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
+        console.log("no set")
         this.state = {
             grade: "",
             name: "",
             location: "",
             date: "",
             typeOfRoute: "",
-            user: ""
-
         }
+
         this.changeGrade = this.changeGrade.bind(this)
         this.changeName = this.changeName.bind(this)
         this.changeLocation = this.changeLocation.bind(this)
@@ -31,6 +24,19 @@ class LogForm extends Component {
         this.changeTypeOfRoute = this.changeTypeOfRoute.bind(this)
         this.onSubmit = this.onSubmit.bind(this)
 
+    }
+
+    componentDidUpdate(prevProps){
+        if (this.props.routeToUpdate !== prevProps.routeToUpdate){
+            console.log("route was updated")
+            this.setState({
+                grade: this.props.routeToUpdate.grade,
+                name: this.props.routeToUpdate.name,
+                location: this.props.routeToUpdate.location,
+                date: this.props.routeToUpdate.date,
+                typeOfRoute: this.props.routeToUpdate.typeOfRoute,
+            })
+        }
     }
 
     //When the user is typing text on the input field, the onChange function will be triggered. 
@@ -62,7 +68,7 @@ class LogForm extends Component {
         })
     }
     //As a ´default, the whole page refresh when submit button is clicked. This function prevents it. We want the peron to be re-directed to the login page. 
-    onSubmit(event) {
+    onSubmit = async(event) => {
         //Doing a prevent Default to prevent page refresh.
         event.preventDefault()
         //Evetything that the user has typed in into the input field and then sent into the onchange funciton is now stored in the 
@@ -73,31 +79,16 @@ class LogForm extends Component {
             location: this.state.location,
             date: this.state.date,
             typeOfRoute: this.state.typeOfRoute
-
         }
         console.log(climbingLog)
-        //Now using axios to send a post request to the database. The variable registered is sending the object with all data. 
-        fetch('http://localhost:3001/api/', {
-            body: JSON.stringify(climbingLog),
-            method: "POST",
-            headers: headers()
-        })
-            .then((response) => {
-                console.log(response)
-                window.location = '/history'
+        if (this.props.routeToUpdate){
+            await updateRoute(this.props.routeToUpdate._id, climbingLog)
+        } else {
+            await postRoute(climbingLog)
+        }
 
-            })
-            .catch((err) => {
-                // The request was made and the server responded with a status code
-                // that falls out of the range of 2xx
-                if (err.response) {
-                    console.log(err.response.data.message);
-                    console.log(err.response.status);
-                    console.log(err.response.headers);
-                    alert(err.response.data.message)
-                }
-            })
-
+        //TODO how to trigger getRoutes in a better way?
+        window.location = '/history';
     }
 
 

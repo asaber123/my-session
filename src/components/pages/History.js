@@ -5,19 +5,13 @@ import classes from '../Layout.module.scss';
 import moment from 'moment';
 import LogForm from '../LogForm';
 import axios from 'axios';
+import { deleteRoute, getRoutes } from '../ApiClient';
 //import { DELETE } from 'mobx/dist/internal';
 
-function authHeader(){
-    const token = localStorage.token
-    if (token){
-        return {Authorization: `Bearer ${token}`};
-    } else {
-        return {};
-    }
-}
 
 function History() {
     const [climbingRoutes, setClimbingRoutes] = useState([]);
+    const [routeToUpdate, setRouteToUpdate] = useState(null);
 
     //Use effect is going to run first time the page loads
     useEffect(async () => {
@@ -25,25 +19,19 @@ function History() {
     }, []);
     //Function to get climbing routes fetched from rest-api
     const getClimbingRoutes = async () => {
-        const response = await fetch(`http://localhost:3001/api/`, {
-            headers: authHeader()
-        });
-        const data = await response.json();
-        setClimbingRoutes(data)
+        const routes = await getRoutes();
+        setClimbingRoutes(routes)
     }
     //when delete button is clicked this funciton starts. 
-    const deleteLog= (id) =>{
+    const deleteLog= async(id) =>{
         //Fetching the rest-api with delete request. 
-        axios.delete(`http://localhost:3001/api/${id}`,{
-            headers: authHeader()
-        })
-        .then((response) => {
-            console.log('deleted', response)
-            getClimbingRoutes()
-        })
-        .catch((err)=>{
-            console.log(err);
-        })
+        const response = await deleteRoute(id)
+        getClimbingRoutes();
+    }
+    const updateLog= async(route) =>{
+        //Fetching the rest-api with delete request. 
+        console.log(`updating route ${route._id}`)
+        setRouteToUpdate(route);
     }
 
 
@@ -65,8 +53,8 @@ function History() {
                         <li> <b>Location: </b></li>
                         <li>{climbingRoute.location}</li>
                     </ul>
-                    <button onClick={() => {deleteLog(climbingRoute._id)}}>Ta bort</button>
-                    <button onClick={() => {console.log(climbingRoute._id)}}>Updatera</button>
+                    <button onClick={() => {deleteLog(climbingRoute._id)}}>Delete</button>
+                    <button onClick={() => {updateLog(climbingRoute)}}>Update</button>
                 </div>
 
 
@@ -74,7 +62,9 @@ function History() {
     }));
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('username')
+    const header = routeToUpdate ? "Update climbing route:" : "Add a new climbing route:"
     if (token) {
+        console.log("rendering")
         return (
             <div className="App">
                 <div className="App">
@@ -85,8 +75,9 @@ function History() {
                 </form> */}
                     <div className={classes.history}>
                         <div className={classes.history_newLog}>
-                           <h2>Add a new climbing route:</h2>
-                           <LogForm/>
+
+                           <h2>{header}</h2>
+                           <LogForm routeToUpdate={routeToUpdate}/>
                         </div>
 
                         <div className={classes.history_previousLogs}>
