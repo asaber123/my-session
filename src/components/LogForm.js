@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import '../App';
-import { postClimbingRoute, updateRoute } from './ApiClient';
+import { postRoute, updateRoute } from './ApiClient';
 
 //Creating a class with props, that will change depending if the user fill the form. 
 class LogForm extends Component {
@@ -83,7 +83,7 @@ class LogForm extends Component {
         if (this.props.routeToUpdate) {
             await updateRoute(this.props.routeToUpdate._id, climbingLog)
         } else {
-            await postClimbingRoute(climbingLog)
+            await postRoute(climbingLog)
         }
 
         //TODO how to trigger getRoutes in a better way?

@@ -3,7 +3,7 @@ import '../../App';
 import classes from '../../styles/Layout.module.scss';
 import moment from 'moment';
 import LogForm from '../LogForm';
-import { deleteRoute, getClimbingRoutes } from '../ApiClient';
+import { deleteRoute, getRoutes } from '../ApiClient';
 
 
 function History() {
@@ -16,7 +16,7 @@ function History() {
     }, []);
     //Function to get climbing routes fetched from rest-api
     const getClimbingRoutes = async () => {
-        const routes = await getClimbingRoutes();
+        const routes = await getRoutes();
         setClimbingRoutes(routes)
     }
     //when delete button is clicked this funciton starts. 
