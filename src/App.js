@@ -9,6 +9,12 @@ import RegisterPage from './components/pages/RegisterPage';
 
 
 
+//This is the file where all the "pages" are set and their paths to be reached. 
+//I use Swich to be able to swich the pages dependning on the paths. 
+//To noit be able to go to pages without be logged in, I check if the session has a toker. 
+//If a toker i set, then the user is logged in and are able to go into the different pages. 
+//If not, the user will be re-directed to login or register page. 
+
 function App() {
   if (localStorage.getItem('token')) {
     return (
@@ -48,118 +54,3 @@ function App() {
 
 export default App;
 
-
-// import React from 'react';
-// import Header from './components/Header';
-// import Footer from './components/Footer';
-// import Home from './components/pages/Home';
-// import History from './components/pages/History';
-// import Analytics from './components/pages/Analytics';
-// import MyPage from './components/pages/MyPage';
-// import Register from './components/pages/Register';
-// import Login from './components/pages/Login';
-// import Submitbutton from './components/Submitbutton';
-// import UserStore from './components/pages/userstore/UserStore';
-// import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-// import {observer} from 'mobx-react';
-// import { observable } from 'mobx';
-// import LoginForm from './components/LoginForm';
-
-// class App extends React.Component{
-
-//   async componentDidMount(){
-//     try{
-//       let res = await fetch('/isLoggedIn', {
-//         method: 'post', 
-//         headers:{
-//           'Accept': 'application/json',
-//           'Content-Type': 'application/json'
-//         }
-//       });
-//       let result = await res.json();
-//       //Sending back a propertie of boolian if it is sucess, so if the user is logged in. 
-//       if (result && result.success){
-//         UserStore.loading = false;
-//         UserStore.isLoggedn = true;
-//         UserStore.username= result.username;
-
-//       }
-//       //If user is not logged in. 
-//       else{
-//         UserStore.loading = false;
-//         UserStore.isLoggedn = false;
-
-
-//       }
-//     }
-//     //If an error is returned from the API this is going to be called anyway. 
-//     catch(error){
-//       UserStore.loading = false;
-//       UserStore.isLoggedn = false;
-
-//     }
-//   }
-
-
-//   //Logout function
-//   async logOut(){
-//     try{
-//       let res = await fetch('/logout', {
-//         method: 'post', 
-//         headers:{
-//           'Accept': 'application/json',
-//           'Content-Type': 'application/json'
-//         }
-//       });
-//       let result = await res.json();
-//       //Sending back a propertie of boolian if it is sucess, so if the user logs out. Then username is set to an empty string and is logged in is not anymore. 
-//       if (result && result.success){
-//         UserStore.isLoggedn = false;
-//         UserStore.username = '';
-
-//       }
-//     }
-//     //If an error is returned, I can debug through console.log
-//     catch(error){
-//       console.log(error)
-
-//     }
-//   }
-
-//   render(){
-//     if(UserStore.loading){
-//       return(
-//         <div className="app">
-//         loading..
-//         </div>
-//       );
-//     }
-//     else{
-//       if (UserStore.isLoggedIn){
-//         return(
-//           <div className="app">
-//           Welcome 
-//           <Submitbutton
-//           text={'Log out'}
-//           disabled ={false}
-//           onClick={() =>this.Logout()}/>
-//           </div>
-
-//         );
-//       }
-
-//         return(
-//           <div className="app">
-//           <LoginForm/>
-//           <Submitbutton
-//           text={'Log out'}
-//           disabled ={false}
-//           onClick={() =>this.Logout()}/>
-//           </div>
-//         )
-
-//     }
-//   }
-// }
-// //Observer makes the component listen 
-// export default observer(App);

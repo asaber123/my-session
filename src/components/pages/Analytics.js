@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../../App';
-import classes from '../Layout.module.scss';
+import classes from '../../styles/Layout.module.scss';
 import moment from 'moment';
 import BarChart from './charts/BarChart';
 import Table from './charts/Table';

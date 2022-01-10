@@ -4,7 +4,9 @@ import '../App';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
+//This is the form and the funcitons to register a new user. 
 
+//Creating a class with props, that will change depending if the user fill the form. 
 class Register extends Component {
     constructor() {
         super()
@@ -13,16 +15,16 @@ class Register extends Component {
             userName: "",
             password: ""
         }
-        this.changeFullName= this.changeFullName.bind(this)
-        this.changeUserName= this.changeUserName.bind(this)
-        this.changePassword= this.changePassword.bind(this)
+        //If the user fill the form and press submit the value that was changed in the forms will be set. 
+        this.changeFullName = this.changeFullName.bind(this)
+        this.changeUserName = this.changeUserName.bind(this)
+        this.changePassword = this.changePassword.bind(this)
         this.onSubmit = this.onSubmit.bind(this)
 
     }
 
     //When the user is typing text on the input field, the onChange function will be triggered. 
     //The cuntion will then set the value on the input fieald to the new value that the user put in. 
-
     changeFullName(event) {
         this.setState({
             fullName: event.target.value
@@ -39,42 +41,45 @@ class Register extends Component {
         })
     }
     //As a ´default, the whole page refresh when submit button is clicked. This function prevents it. We want the peron to be re-directed to the login page. 
-    onSubmit(event){
+    onSubmit(event) {
         event.preventDefault()
         //Evetything that the user has typed in into the input field and then sent into the onchange funciton is now stored in the 
         //varibale registered whenn submit button has been clicked. 
-        const registered ={
+        const registered = {
             fullName: this.state.fullName,
             userName: this.state.userName,
             password: this.state.password
         }
         console.log(registered)
-            //Now using axios to send a post request to the database. The variable registered is sending the object with all data. 
-    axios.post('/auth/signup', registered)
-        .then((response)=>{
-            console.log(response)
-        })
-        .catch((err)=> {
-            // The request was made and the server responded with a status code
-            // that falls out of the range of 2xx
-             if (err.response) {
-               console.log(err.response.data.message);
-               console.log(err.response.status);
-               console.log(err.response.headers);
-               alert(err.response.data.message)
-             }
-           })
-        // //Redirectiing user to logged in page
-        window.location ='/'
+        //Now using axios to send a post request to the database. The variable registered is sending the object with all data. 
+        axios.post('/auth/signup', registered)
+            .then((response) => {
+                console.log(response)
+            })
+            .catch((err) => {
+                // The request was made and the server responded with a status code
+                // that falls out of the range of 2xx
+                if (err.response) {
+                    console.log(err.response.data.message);
+                    console.log(err.response.status);
+                    console.log(err.response.headers);
+                    alert(err.response.data.message)
+                }
+            })
+      //Redirectiing user to logged in page
+        window.location = '/'
 
     }
 
-
+//This is the structure of the form in html
     render() {
         return (
             <div className='formDiv'>
+                {/* When submit button is clicked, then the onSubmit function will be activated. */}
                 <form onSubmit={this.onSubmit}>
                     <label>Full name:</label>
+                    {/* On all inputs, the function that is on the onchange will be started when the user starts filling the form */}
+                    {/* The value will be set to the state */}
                     <input
                         type="text"
                         onChange={this.changeFullName}
@@ -95,9 +100,9 @@ class Register extends Component {
                         value={this.state.password}
                         className='form-control form-group' />
                     <br></br>
-                        <input type='submit' className='btn btn-success' value='submit' />
-                        <br></br><br></br>
-                        <p>Alreddy a user? <a><Link to='/'>Login</Link></a> </p>
+                    <input type='submit' className='btn btn-success' value='submit' />
+                    <br></br><br></br>
+                    <p>Alreddy a user? <a><Link to='/'>Login</Link></a> </p>
                 </form>
             </div>
         )

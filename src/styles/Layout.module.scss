@@ -1,39 +1,7 @@
-@import "./../styles/variables.scss";
-@import "./../styles/index.scss";
-//Mixins
-@mixin small-phone {
-    @media (max-width: 520px) {
-      @content;
-    }
-  }
-  
-  @mixin phone {
-    @media (max-width: 750px) {
-      @content;
-    }
-  }
-  @mixin tablet {
-    @media (max-width: 1100px) {
-      @content;
-    }
-  }
+@import "./Variables.scss";
+@import "./Basics.scss";
 
-  //General rules
-  html{
-    background-color: $dark;
-    margin: 0px;
-    padding:0px;
-    box-sizing: border-box;
-  }
-  body{
-    background-color: white;
-  }
-
-.container{
-    height: 300px;
-    width: 300px;
-    background: $primary;
-}
+//This is the styling for all pages. 
 
 // Styling history page
 .history{

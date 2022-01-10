@@ -1,4 +1,19 @@
-export async function getRoutes(){
+//Here I make all the Request to the API.
+
+//In all requests I'm also sending in a authorization with token in the header. 
+//This checks so that the client that is making the request is logged in. 
+//This makes the requests safter. 
+//Headers are also set to json format. 
+function headers() {
+    const headers = {'Content-Type': 'application/json'}
+    const token = localStorage.token
+    if (token){
+        headers['Authorization'] = `Bearer ${token}`;
+    }
+    return headers;
+}
+
+export async function getClimbingRoutes(){
     const response = await fetch(`http://localhost:3001/api/`, {
             method: "GET",
             headers: headers()
@@ -7,7 +22,7 @@ export async function getRoutes(){
     return data;
 }
 
-export async function postRoute(climbingLog){
+export async function postClimbingRoute(climbingLog){
     const response = await fetch('http://localhost:3001/api/', {
         body: JSON.stringify(climbingLog),
         method: "POST",
@@ -40,11 +55,3 @@ export async function deleteRoute(id){
 }
 
 
-function headers() {
-    const headers = {'Content-Type': 'application/json'}
-    const token = localStorage.token
-    if (token){
-        headers['Authorization'] = `Bearer ${token}`;
-    }
-    return headers;
-}

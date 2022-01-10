@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../App';
-import classes from '../Layout.module.scss';
+import classes from '../../styles/Layout.module.scss';
 import RegisterForm from '../RegisterForm';
 import logo from '../img/myLog.png';
 

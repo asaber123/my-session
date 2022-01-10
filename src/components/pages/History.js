@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import '../../App';
-//import Axios from 'axios';
-import classes from '../Layout.module.scss';
+import classes from '../../styles/Layout.module.scss';
 import moment from 'moment';
 import LogForm from '../LogForm';
-import axios from 'axios';
-import { deleteRoute, getRoutes } from '../ApiClient';
-//import { DELETE } from 'mobx/dist/internal';
+import { deleteRoute, getClimbingRoutes } from '../ApiClient';
 
 
 function History() {
@@ -19,43 +16,44 @@ function History() {
     }, []);
     //Function to get climbing routes fetched from rest-api
     const getClimbingRoutes = async () => {
-        const routes = await getRoutes();
+        const routes = await getClimbingRoutes();
         setClimbingRoutes(routes)
     }
     //when delete button is clicked this funciton starts. 
-    const deleteLog= async(id) =>{
+    const deleteLog = async (id) => {
         //Fetching the rest-api with delete request. 
         const response = await deleteRoute(id)
         getClimbingRoutes();
     }
-    const updateLog= async(route) =>{
-        //Fetching the rest-api with delete request. 
-        console.log(`updating route ${route._id}`)
+    const updateLog = async (route) => {
+        //If the user press update, this fucntion will be called sent with the value of the log that will be set as props, 
+        //that then in the file LogForm willl be set as activated. 
         setRouteToUpdate(route);
     }
 
 
     // //Making an array that contains all data that has been fetched. 
-    
+
     const arr = climbingRoutes.map((climbingRoute => {
         return (
-                <div key={climbingRoute._id} className={classes.history__log}>
-                    <ul>
-                        {/* using moment package to format date */}
-                        <li><b>{moment(climbingRoute.date).format('LL')}</b></li>
-                        <li><b>Grade:</b> {climbingRoute.grade}</li>
-                    </ul>
-                    <ul>
-                        <li><b>Name of route:</b> {climbingRoute.name}</li>
-                        <li><b>Type of route:</b> {climbingRoute.grade}</li>
-                    </ul>
-                    <ul>
-                        <li> <b>Location: </b></li>
-                        <li>{climbingRoute.location}</li>
-                    </ul>
-                    <button onClick={() => {deleteLog(climbingRoute._id)}}>Delete</button>
-                    <button onClick={() => {updateLog(climbingRoute)}}>Update</button>
-                </div>
+            <div key={climbingRoute._id} className={classes.history__log}>
+                <ul>
+                    {/* using moment package to format date */}
+                    <li><b>{moment(climbingRoute.date).format('LL')}</b></li>
+                    <li><b>Grade:</b> {climbingRoute.grade}</li>
+                </ul>
+                <ul>
+                    <li><b>Name of route:</b> {climbingRoute.name}</li>
+                    <li><b>Type of route:</b> {climbingRoute.grade}</li>
+                </ul>
+                <ul>
+                    <li> <b>Location: </b></li>
+                    <li>{climbingRoute.location}</li>
+                </ul>
+                <button onClick={() => { deleteLog(climbingRoute._id) }}>Delete</button>
+                {/* When a user press update log, the whole object will be sent to the function "updateLog" */}
+                <button onClick={() => { updateLog(climbingRoute) }}>Update</button>
+            </div>
 
 
         )
@@ -66,30 +64,23 @@ function History() {
     if (token) {
         console.log("rendering")
         return (
-            <div className="App">
-                <div className="App">
+            <main>
+                <div className={classes.history}>
+                    <div className={classes.history_newLog}>
 
-                    {/* <form className="search-form">
-                    <input className="search-bar" type="text" value={search} onChange={updateSearch}/>
-                    <button className="search-buttton" type="submit">Search</button>
-                </form> */}
-                    <div className={classes.history}>
-                        <div className={classes.history_newLog}>
-
-                           <h2>{header}</h2>
-                           <LogForm routeToUpdate={routeToUpdate}/>
-                        </div>
-
-                        <div className={classes.history_previousLogs}>
-                            <h2>My log:</h2>
-                            {arr}
-                        </div>
-
+                        <h2>{header}</h2>
+                        <LogForm routeToUpdate={routeToUpdate} />
                     </div>
+
+                    <div className={classes.history_previousLogs}>
+                        <h2>My log:</h2>
+                        {arr}
+                    </div>
+
                 </div>
-            </div>
+            </main>
         );
-    } 
+    }
 }
 
 

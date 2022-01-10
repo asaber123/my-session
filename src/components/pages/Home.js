@@ -1,10 +1,7 @@
 import React, { component } from 'react';
 import '../../App';
-import classes from '../Layout.module.scss';
-import LoginForm from '../LoginForm';
-import headerImg from '../img/climber1.png';
+import classes from '../../styles/Layout.module.scss';
 import { Component } from 'react';
-import axios from 'axios';
 
 
 export default class Home extends Component {

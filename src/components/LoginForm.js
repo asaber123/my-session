@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
-import classes from './Form.module.scss';
 import '../App';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
+//This file is for the user to log in. 
 
+//Creating a class with props, that will change depending if the user fill the form. 
 class Login extends Component {
     constructor() {
         super()
@@ -13,6 +14,7 @@ class Login extends Component {
             userName: "",
             password: ""
         }
+        //If the user fill the form and press submit the value that was changed in the forms will be set. 
         this.changeUserName = this.changeUserName.bind(this)
         this.changePassword = this.changePassword.bind(this)
         this.onSubmit = this.onSubmit.bind(this)
@@ -21,7 +23,6 @@ class Login extends Component {
 
     //When the user is typing text on the input field, the onChange function will be triggered. 
     //The cuntion will then set the value on the input fieald to the new value that the user put in. 
-
     changeUserName(event) {
         this.setState({
             userName: event.target.value
@@ -68,18 +69,20 @@ class Login extends Component {
 
     }
 
-
+    //This is the structure of the form in html
     render() {
         if (localStorage.getItem('token')) {
             window.location = '/home'
         }
         else {
             return (
-                <div className={classes.formDiv}>
-
+                <div className='formDiv'>
+                    {/* When submit button is clicked, then the onSubmit function will be activated. */}
                     <form onSubmit={this.onSubmit}>
 
                         <label>Username:</label>
+                        {/* On all inputs, the function that is on the onchange will be started when the user starts filling the form */}
+                        {/* The value will be set to the state */}
                         <input
                             type="text"
                             onChange={this.changeUserName}

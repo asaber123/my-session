@@ -1,8 +1,8 @@
 import React from 'react';
-import classes from './Footer.module.scss';
+import classes from '../styles/Footer.module.scss';
 import '../App';
 
-
+//Footer component
 function Footer() {
 
     return (

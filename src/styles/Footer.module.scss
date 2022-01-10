@@ -1,0 +1,14 @@
+//Importing variables
+@import './Variables.scss';
+@import "./Basics.scss";
+
+//this is styling for footer
+
+  .footer{
+      background: $dark;
+      width: 100%;
+      text-align: center;
+      color:white;
+      padding-top: 5px;
+      padding-bottom: 5px;
+  }

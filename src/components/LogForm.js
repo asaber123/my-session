@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import '../App';
-import axios from 'axios';
-import fetchHeaders, { postRoute, updateRoute } from './ApiClient';
+import { postClimbingRoute, updateRoute } from './ApiClient';
 
-
+//Creating a class with props, that will change depending if the user fill the form. 
 class LogForm extends Component {
     constructor(props) {
         super(props)
-        console.log("no set")
         this.state = {
             grade: "",
             name: "",
@@ -16,7 +14,7 @@ class LogForm extends Component {
             date: "",
             typeOfRoute: "",
         }
-
+        //If the user fill the form and press submit the value that was changed in the forms will be set. 
         this.changeGrade = this.changeGrade.bind(this)
         this.changeName = this.changeName.bind(this)
         this.changeLocation = this.changeLocation.bind(this)
@@ -25,10 +23,11 @@ class LogForm extends Component {
         this.onSubmit = this.onSubmit.bind(this)
 
     }
-
-    componentDidUpdate(prevProps){
-        if (this.props.routeToUpdate !== prevProps.routeToUpdate){
-            console.log("route was updated")
+    //This runns if the user clicked "update" on any log. 
+    //The function componentDidUpdate will  start when the state is changes. 
+    //Then the previous values of the logs will be sent and set as the values of the form
+    componentDidUpdate(prevProps) {
+        if (this.props.routeToUpdate !== prevProps.routeToUpdate) {
             this.setState({
                 grade: this.props.routeToUpdate.grade,
                 name: this.props.routeToUpdate.name,
@@ -68,7 +67,7 @@ class LogForm extends Component {
         })
     }
     //As a ´default, the whole page refresh when submit button is clicked. This function prevents it. We want the peron to be re-directed to the login page. 
-    onSubmit = async(event) => {
+    onSubmit = async (event) => {
         //Doing a prevent Default to prevent page refresh.
         event.preventDefault()
         //Evetything that the user has typed in into the input field and then sent into the onchange funciton is now stored in the 
@@ -81,22 +80,24 @@ class LogForm extends Component {
             typeOfRoute: this.state.typeOfRoute
         }
         console.log(climbingLog)
-        if (this.props.routeToUpdate){
+        if (this.props.routeToUpdate) {
             await updateRoute(this.props.routeToUpdate._id, climbingLog)
         } else {
-            await postRoute(climbingLog)
+            await postClimbingRoute(climbingLog)
         }
 
         //TODO how to trigger getRoutes in a better way?
         window.location = '/history';
     }
-
-
+    //This is the structure of the form in html
     render() {
         return (
             <div className='formDiv'>
+                {/* When submit button is clicked, then the onSubmit function will be activated. */}
                 <form onSubmit={this.onSubmit}>
                     <label>Name of route:</label>
+                    {/* On all inputs, the function that is on the onchange will be started when the user starts filling the form */}
+                    {/* The value will be set to the state */}
                     <input
                         type="text"
                         onChange={this.changeName}
