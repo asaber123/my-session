@@ -13,6 +13,9 @@
     margin-bottom: 200px;
     color:$light;
     border-radius: 10px;
+    @include tablet{
+      width: 90%;
+    }
 
     &_previousLogs{
       margin-top: 100px;
@@ -28,6 +31,10 @@
         justify-content: space-between;
         padding: 20px;
         color: $dark;
+        @include tablet{
+          flex-direction: column;
+        }
+
         &__button{
           padding: 15px;
           border-radius: 15px;
@@ -44,6 +51,9 @@
     }
     ul{
         width: 33%;
+        @include tablet{
+          width: 100%;
+        }
     }
 
 }
@@ -58,6 +68,7 @@
         background-image: url(../components/img/climber1.png);
         background-repeat: no-repeat;
         background-size: cover;
+        background-position: center;
         width: 100vw;
         height: 100vh;
         display: grid;
@@ -85,18 +96,27 @@
         grid-row:7/8;
         font-weight: bold;
         font-size: 1.5em;
+        @include tablet{
+          display: none;
+        }
         }
         &__slogan2{
         grid-column: 7/8;
         grid-row:6/7;
         font-weight: bold;
         font-size: 1.5em;
+        @include tablet{
+          display: none;
+        }
         }
         &__slogan3{
         grid-column: 8/9;
         grid-row:5/6;
         font-weight: bold;
         font-size: 1.5em;
+        @include tablet{
+          display: none;
+        }
         }
     }
     &__introText{
@@ -105,9 +125,14 @@
       text-align: center;
       width: 600px;
       margin: auto;
+      @include tablet{
+        width: 70%;
+      }
+      @include phone{
+        width: 90%;
+      }
       h2{
         color: $dark;
-        text-decoration: underline;
         margin-bottom: 30px;
         margin-top: 50px;
         }
@@ -120,7 +145,6 @@
         text-align: center;
         h2{
           color: $dark;
-          text-decoration: underline;
           margin-bottom: 30px;
           }
         &__features{
@@ -130,17 +154,50 @@
           width: 70%;
           margin:auto;
           margin-bottom: 200px;
+          @include tablet{
+            flex-direction: column;
+            width: 70%;
+          }
+          h3{
+            font-size: 1.5em;
+          }
 
           &__image{
-            background: $dark;
-            width: 40%;
+            background-image: url(../components/img/statistics.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            border: 2px solid black;
+            background-position: center;
+            border-radius: 25px;
+            width: 350px;
+            height: 500px;
+            margin-bottom: 50px;
+            margin: auto;
+            @include phone{
+              width: 100%;
+            }
           }
           &__text{
             width: 40%;
             margin-left: 40px;
             text-align: left;
+            margin: auto;
+            @include tablet{
+              width: 70%;
+              margin-top: 50px;
+            }
             &__line{
               margin-bottom: 20px;
+              &__checkmark{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                img{
+                  height: 20px;
+                  margin-right: 20px;
+                }
+              }
             }
           }
         }
@@ -158,6 +215,7 @@
       background-image: url(../components/img/lorenzo.jpg);
       background-repeat: no-repeat;
       background-size: cover;
+      background-position: center;
       width: 100vw;
       height: 100vh;
       display: grid;
@@ -170,6 +228,10 @@
         flex-direction: row;
         align-items: center;
         color: white;
+        @include tablet{
+          grid-column: 3/7;
+          grid-row: 2/3;
+        }
         h1{
           font-size: 3.5em;
         }
@@ -189,6 +251,10 @@
         border-radius: 10px;
         font-weight: bold;
         margin-bottom: 40px;
+        @include tablet{
+          grid-column: 3/7;
+          grid-row: 4/7;
+        }
         a{
           text-decoration: underline;
           color: $dark;
@@ -196,6 +262,7 @@
         a:hover{
           color: $light;
         }
+
       }
       &__slogan1{
       grid-column: 7/9;
@@ -203,6 +270,9 @@
       font-weight: bold;
       font-size: 1.5em;
       margin-left: 40px;
+      @include tablet{
+        display: none;
+      }
 
       }
       &__slogan2{
@@ -211,7 +281,9 @@
       font-weight: bold;
       font-size: 1.5em;
       margin-left: 40px;
-
+      @include tablet{
+        display: none;
+      }
 
       }
       &__slogan3{
@@ -220,7 +292,9 @@
       font-weight: bold;
       font-size: 1.5em;
       margin-left: 40px;
-
+      @include tablet{
+        display: none;
+      }
 
       }
   }
@@ -230,9 +304,11 @@
     text-align: center;
     width: 600px;
     margin: auto;
+    @include tablet{
+      width: 70%;
+    }
     h2{
       color: $dark;
-      text-decoration: underline;
       margin-bottom: 30px;
       margin-top: 50px;
       }
@@ -245,7 +321,6 @@
       text-align: center;
       h2{
         color: $dark;
-        text-decoration: underline;
         margin-bottom: 30px;
         }
       &__features{
@@ -255,10 +330,24 @@
         width: 70%;
         margin:auto;
         margin-bottom: 200px;
+        @include tablet{
+          flex-direction: column;
+        }
+        h3{
+          font-size: 1.5em;
+        }
 
         &__image{
-          background: $dark;
-          width: 40%;
+          background-image: url(../components/img/statistics.png);
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+          border: 2px solid black;
+          background-position: center;
+          border-radius: 25px;
+          width: 350px;
+          
+
         }
         &__text{
           width: 40%;
@@ -282,4 +371,7 @@
   margin:auto;
   min-height: 100vh;
 
+  @include phone{
+    padding-top: 0px;
+  }
 }

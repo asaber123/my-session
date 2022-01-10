@@ -2,6 +2,12 @@ import React, { component } from 'react';
 import '../../App';
 import classes from '../../styles/Layout.module.scss';
 import { Component } from 'react';
+import Improve from '../img/improvement.png';
+import Track from '../img/track.png';
+import Log from '../img/writing.png';
+import Checkmark from '../img/check-mark.png';
+
+
 
 
 export default class Home extends Component {
@@ -13,12 +19,15 @@ export default class Home extends Component {
                     <div className={classes.home}>
                         <div className={classes.home__header}>
                             <div className={classes.home__header__slogan3}>
+                                <img src={Improve} />
                                 <p>Improve</p>
                             </div>
                             <div className={classes.home__header__slogan2}>
+                                <img src={Track} />
                                 <p>Analyze</p>
                             </div>
                             <div className={classes.home__header__slogan1}>
+                                <img src={Log} />
                                 <p>Track</p>
                             </div>
                         </div>
@@ -35,19 +44,19 @@ export default class Home extends Component {
                                 </div>
                                 <div className={classes.home__featuresSection__features__text}>
                                     <div className={classes.home__featuresSection__features__text__line}>
-                                        <h3>Log your routes</h3>
+                                        <div className={classes.home__featuresSection__features__text__line__checkmark}> <img src={Checkmark} /><h3>Log your routes</h3> </div>
                                         <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.  </p>
                                     </div>
                                     <div className={classes.home__featuresSection__features__text__line}>
-                                        <h3>Track your progress</h3>
+                                    <div className={classes.home__featuresSection__features__text__line__checkmark}> <img src={Checkmark} /><h3>Track your progress</h3> </div>
                                         <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.  </p>
                                     </div>
                                     <div className={classes.home__featuresSection__features__text__line}>
-                                        <h3>Analyze your history</h3>
+                                    <div className={classes.home__featuresSection__features__text__line__checkmark}> <img src={Checkmark} /><h3>Analyze your history</h3> </div>
                                         <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.  </p>
                                     </div>
                                     <div className={classes.home__featuresSection__features__text__line}>
-                                        <h3>Exalarate your progression</h3>
+                                    <div className={classes.home__featuresSection__features__text__line__checkmark}> <img src={Checkmark} /><h3>Exalarate your progression</h3> </div>    
                                         <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.  </p>
                                     </div>
                                 </div>

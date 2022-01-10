@@ -29,7 +29,7 @@ function Header() {
     return (
         <header className={classes.header}>
             <div className={classes.header__content}>
-                <Link to='/'>
+                <Link to='/' style={{ color: 'inherit', textDecoration: 'inherit'}}>
                     <div className={classes.header__content__logo}>
                         <img src={logo} alt="Logo" />
                         <h2>MyLog</h2>
@@ -39,15 +39,15 @@ function Header() {
                 <nav className={`${classes.header__content__nav} ${menuOpen ? classes.isMenu : ""}`}>
                     <ul>
                         {/* Creating links to the different pages.  */}
-                        <Link to='/history'>
+                        <Link to='/history' >
                             <li>History</li>
                         </Link>
-                        <Link to='/analytics'>
+                        <Link to='/analytics' >
                             <li>Analytics</li>
-                        </Link>
+                        </Link >
                         {/* Using a bootstrap menu to have a dropdown menu that allows the user to click logout */}
-                        <NavDropdown title={username} id="logout">
-                            <NavDropdown.Item bg="dark" onClick={logout}>Logout</NavDropdown.Item>
+                        <NavDropdown title={username} id="logout" style={{ color: 'inherit', textDecoration: 'inherit'}}>
+                            <NavDropdown.Item style={{ color: 'inherit', textDecoration: 'inherit'}} bg="dark" onClick={logout}>Logout</NavDropdown.Item>
                         </NavDropdown>
                     </ul>
                 </nav>
