@@ -126,32 +126,6 @@ class LogForm extends Component {
                         <option value="undefined">Project/undefined</option>
                     </select>
 
-                    {/* 
-                    <div class="form-check">
-                        <input 
-                        class="form-check-input" 
-                        type="radio" 
-                        name="flexRadioDefault" 
-                        id="flexRadioDefault1"
-                        onChange={this.changeLocation}
-                        value={this.state.location}/>
-                        <label class ="form-check-label" for="flexRadioDefault1">
-                        Indoor
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" 
-                        type="radio"                         
-                        onChange={this.changeLocation}
-                        value={this.state.location}
-                        name="flexRadioDefault" 
-                        id="flexRadioDefault2" 
-                        checked/>
-                        <label class ="form-check-label" for="flexRadioDefault2">
-                        Outdoor
-                        </label>
-                    </div> */}
-
                     <select class="form-select" aria-label="Default select example"value={this.state.typeOfRoute} onChange={this.changeTypeOfRoute}>
                         <option selected>Location:</option>
                         <option value="Indoor">Indoor</option>
