@@ -33,7 +33,6 @@ const BarChart = () => {
   const data = {
     labels: Object.keys(labelsAndCounts),
     datasets: [{
-      label: `Total ascents by grade:`,
       data: Object.values(labelsAndCounts),
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
@@ -58,12 +57,25 @@ const BarChart = () => {
   var options = {
     maintainAspectRatio: false,
     scales: {
-    },
+      x: {
+        display: true,
+        title: {
+          display: true,
+          text: 'Total accents by grade',
+          color: '#395B62',
+          font: {
+            size: 20,
+            weight: 'bold',
+          },
+        }
+      },
     legend: {
       labels: {
         fontSize: 25,
       },
     },
+
+  }
   }
 
 

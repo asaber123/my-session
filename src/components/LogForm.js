@@ -108,13 +108,6 @@ class LogForm extends Component {
                         value={this.state.name}
                         className='form-control form-group' />
 
-                    <label>Grade:</label>
-                    {/* <input
-                        type="text"
-                        onChange={this.changeGrade}
-                        value={this.state.grade}
-                        className='form-control form-group' />
- */}
 
                     <select class="form-select" aria-label="Default select example"value={this.state.grade} onChange={this.changeGrade}>
                         <option selected>Grade:</option>
@@ -159,27 +152,19 @@ class LogForm extends Component {
                         </label>
                     </div> */}
 
-                    <label>location:</label>
-                    <input
-                        type="text"
-                        onChange={this.changeLocation}
-                        value={this.state.location}
-                        className='form-control form-group' />
+                    <select class="form-select" aria-label="Default select example"value={this.state.typeOfRoute} onChange={this.changeTypeOfRoute}>
+                        <option selected>Location:</option>
+                        <option value="Indoor">Indoor</option>
+                        <option value="Outdoor">Outdoor</option>
+                    </select>
 
-                    <label>Date:</label>
-                    <input
-                        type="text"
-                        onChange={this.changeDate}
-                        value={this.state.date}
-                        className='form-control form-group' />
 
-                    <label>Type of route:</label>
-                    <input
-                        type="text"
-                        onChange={this.changeTypeOfRoute}
-                        value={this.state.typeOfRoute}
-                        className='form-control form-group' />
-                    <br></br>
+                    <select class="form-select" aria-label="Default select example"value={this.state.typeOfRoute} onChange={this.changeTypeOfRoute}>
+                        <option selected>Type of route:</option>
+                        <option value="Traditional">Traditional</option>
+                        <option value="Sport-climbing">Sport-climbing</option>
+                        <option value="Bouldering">Bouldering</option>
+                    </select>
                     <input type='submit' className='btn btn-success' value='submit' />
                 </form>
             </div>
