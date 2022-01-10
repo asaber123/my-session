@@ -25,31 +25,16 @@ const BarChart = () => {
     setClimbingRoutes(routes)
   }
 
-  //setting a array that only saves the unique keys. 
-  const allLabels = climbingRoutes?.map(x => x.grade)
-  const uniqueLabels = [...new Set(allLabels)];
+  const labelsAndCounts = {}
+  climbingRoutes?.map(x => {
+    labelsAndCounts[x.grade] = (labelsAndCounts[x.grade] || 0) + 1
+  })
 
-  //Counting how many of each uniqe grade there is.
-  let countObj = {};
-  let arr = [1, 2, 3, 1, 2, 3, 4];
-
-  let countFunc = keys => {
-    countObj[keys] = ++countObj[keys] || 1;
-  }
-
-  arr.forEach(countFunc);
-
-  // const countPerGrade = new Set(climbingRoutes?.map(x => x.grade))
-  // climbingRoutes.map(x => 
-  //     countPerGrade[x.grade] = countPerGrade[x.grade] + 1
-  //   )
-
-
-  var data = {
-    labels: uniqueLabels,
+  const data = {
+    labels: Object.keys(labelsAndCounts),
     datasets: [{
       label: `Total ascents by grade:`,
-      data: [2, 3, 5, 6, 4],
+      data: Object.values(labelsAndCounts),
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
         'rgba(54, 162, 235, 0.2)',
