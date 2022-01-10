@@ -5,7 +5,6 @@ import History from './components/pages/History';
 import Analytics from './components/pages/Analytics';
 import StartPage from './components/pages/Start';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import RegisterPage from './components/pages/RegisterPage';
 
 
 
@@ -27,9 +26,8 @@ function App() {
           <Switch>
             <Route path="/home" exact component={Home} />
             <Route path="/history" component={History} />
-            <Route path="/analytics" component={Analytics} />
-            <Route path="/register" component={RegisterPage} />
-            <Route path="/" component={StartPage} />
+            <Route path="/analytics" component={Analytics}/>
+            <Route path="/" component={Home}/>
           </Switch>
           <Footer />
         </div>
@@ -41,7 +39,7 @@ function App() {
       <Router>
         <div className="App">
           <Switch>
-            <Route path="/register" component={RegisterPage} />
+            <Route path="/register" component={StartPage} />
             <Route path="/" component={StartPage} />
           </Switch>
           <Footer />

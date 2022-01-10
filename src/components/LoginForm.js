@@ -69,7 +69,7 @@ class Login extends Component {
 
     }
 
-    //This is the structure of the form in html
+//This is the structure of the form in html
     render() {
         if (localStorage.getItem('token')) {
             window.location = '/home'
@@ -77,12 +77,12 @@ class Login extends Component {
         else {
             return (
                 <div className='formDiv'>
-                    {/* When submit button is clicked, then the onSubmit function will be activated. */}
+                {/* When submit button is clicked, then the onSubmit function will be activated. */}
                     <form onSubmit={this.onSubmit}>
 
                         <label>Username:</label>
-                        {/* On all inputs, the function that is on the onchange will be started when the user starts filling the form */}
-                        {/* The value will be set to the state */}
+                                            {/* On all inputs, the function that is on the onchange will be started when the user starts filling the form */}
+                    {/* The value will be set to the state */}
                         <input
                             type="text"
                             onChange={this.changeUserName}

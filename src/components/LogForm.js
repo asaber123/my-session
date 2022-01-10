@@ -89,6 +89,10 @@ class LogForm extends Component {
         //TODO how to trigger getRoutes in a better way?
         window.location = '/history';
     }
+
+
+
+
     //This is the structure of the form in html
     render() {
         return (
@@ -105,30 +109,29 @@ class LogForm extends Component {
                         className='form-control form-group' />
 
                     <label>Grade:</label>
-                    <input
+                    {/* <input
                         type="text"
                         onChange={this.changeGrade}
                         value={this.state.grade}
                         className='form-control form-group' />
+ */}
 
-
-                    {/* <select class="form-select" aria-label="Default select example">
+                    <select class="form-select" aria-label="Default select example"value={this.state.grade} onChange={this.changeGrade}>
                         <option selected>Grade:</option>
-                        <option value="1">6</option>
-                        <option value="2">6a</option>
-                        <option value="3">6b</option>
-                        <option value="3">6c</option>
-                        <option value="2">7a</option>
-                        <option value="3">7b</option>
-                        <option value="3">7c</option>
-                        <option value="2">8a</option>
-                        <option value="3">8b</option>
-                        <option value="3">8c</option>
-                        <option value="2">9a</option>
-                        <option value="3">9b</option>
-                        <option value="3">9c</option>
-                        <option value="3">Project/undefined</option>
-                    </select> */}
+                        <option value="6a">6a</option>
+                        <option value="6b">6b</option>
+                        <option value="6c">6c</option>
+                        <option value="7a">7a</option>
+                        <option value="7b">7b</option>
+                        <option value="7c">7c</option>
+                        <option value="8a">8a</option>
+                        <option value="8b">8b</option>
+                        <option value="8c">8c</option>
+                        <option value="9a">9a</option>
+                        <option value="9b">9b</option>
+                        <option value="9b">9c</option>
+                        <option value="undefined">Project/undefined</option>
+                    </select>
 
                     {/* 
                     <div class="form-check">

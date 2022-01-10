@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../App';
 import classes from '../../styles/Layout.module.scss';
 import LoginForm from '../LoginForm';
@@ -8,10 +8,24 @@ import Improve from '../img/improvement.png';
 import Track from '../img/track.png';
 import Log from '../img/writing.png';
 import Checkmark from '../img/check-mark.png';
+import RegisterForm from '../RegisterForm';
 
 
 
-function Start() {
+function Start(props) {
+    const isRegister = props.location.pathname === "/register"
+    let form;
+    if (isRegister) {
+        form = <div className={classes.start__header__loginform}>
+            <h2>Login</h2>
+            <RegisterForm />
+        </div>
+    } else {
+        form = <div className={classes.start__header__loginform}>
+            <h2>Login</h2>
+            <LoginForm />
+        </div>
+    }
     return (
         <main>
             <div className={classes.start}>
@@ -19,11 +33,7 @@ function Start() {
                     <div className={classes.start__header__logo}>
                         <img src={logo} alt="Logo" /> <h1>MyLog</h1>
                     </div>
-                    <div className={classes.start__header__loginform}>
-
-                        <h2>Login</h2>
-                        <LoginForm />
-                    </div>
+                    {form}
                     <div className={classes.start__header__slogan3}>
                         <img src={Improve} />
                         <p>Improve</p>
