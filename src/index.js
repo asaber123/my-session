@@ -6,8 +6,10 @@ import axios from 'axios';
 
 //This is the paga connecting the components to the HTML document/dom
 
+const BASE_URL = System.getenv("IS_RUNNING_ON_HEROKU") === "TRUE"? `https://mysessionlogapi.herokuapp.com`: `http://localhost:3001`;
 
-axios.defaults.baseURL='http://localhost:3001';
+//TODO dont use axios
+axios.defaults.baseURL=BASE_URL;
 
 
 ReactDOM.render(

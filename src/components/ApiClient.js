@@ -3,9 +3,11 @@
 //In all requests I'm also sending in a authorization with token in the header. 
 //This checks so that the client that is making the request is logged in. 
 //This makes the requests safter. 
-//Headers are also set to json format. 
+//Headers are also set to json format.
+const BASE_URL = System.getenv("IS_RUNNING_ON_HEROKU") === "TRUE"? `https://mysessionlogapi.herokuapp.com/api/`: `http://localhost:3001/api/`;
+
 export async function getRoutes(){
-    const response = await fetch(`http://localhost:3001/api/`, {
+    const response = await fetch(BASE_URL, {
             method: "GET",
             headers: headers()
         });
@@ -14,7 +16,7 @@ export async function getRoutes(){
 }
 
 export async function postRoute(climbingLog){
-    const response = await fetch('http://localhost:3001/api/', {
+    const response = await fetch(BASE_URL, {
         body: JSON.stringify(climbingLog),
         method: "POST",
         headers: headers()
@@ -30,7 +32,7 @@ export async function postRoute(climbingLog){
 }
 
 export async function updateRoute(id, climbingLog){
-    const response = await fetch(`http://localhost:3001/api/${id}`, {
+    const response = await fetch(`${BASE_URL}${id}`, {
         body: JSON.stringify(climbingLog),
         method: "PATCH",
         headers: headers()
@@ -39,7 +41,7 @@ export async function updateRoute(id, climbingLog){
 }
 
 export async function deleteRoute(id){
-    return await fetch(`http://localhost:3001/api/${id}`, {
+    return await fetch(`${BASE_URL}${id}`, {
         method: "DELETE",
         headers: headers()
     });
