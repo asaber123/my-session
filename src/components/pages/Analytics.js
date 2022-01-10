@@ -1,17 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import '../../App';
-import classes from '../../styles/Layout.module.scss';
-import moment from 'moment';
 import BarChart from './charts/BarChart';
-import Table from './charts/Table';
-import { getRoutes } from '../ApiClient';
+//import ScatterGraph from './charts/Scatter'
+
+import classes from '../../styles/Layout.module.scss';
 
 
 function Analytics() {
     return (
-        <div>
+        <div className={classes.analytics}>
             <BarChart />
-            {/* <Table /> */}
+            {/* <ScatterGraph/> */}
         </div>
     )
 }

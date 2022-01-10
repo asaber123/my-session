@@ -6,6 +6,8 @@ import { BiMenu } from 'react-icons/bi';
 import { AiOutlineClose } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { NavDropdown } from 'react-bootstrap';
+import logo from '../components/img/myLog.png';
+
 
 //This is the header component. This will also be containing a responsive navbar. 
 function Header() {
@@ -28,7 +30,10 @@ function Header() {
         <header className={classes.header}>
             <div className={classes.header__content}>
                 <Link to='/'>
-                    <h2 className={classes.header__content__logo}>myLog</h2>
+                    <div className={classes.header__content__logo}>
+                        <img src={logo} alt="Logo" />
+                        <h2>MyLog</h2>
+                    </div>
                 </Link>
 
                 <nav className={`${classes.header__content__nav} ${menuOpen ? classes.isMenu : ""}`}>

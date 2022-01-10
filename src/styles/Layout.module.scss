@@ -28,6 +28,19 @@
         justify-content: space-between;
         padding: 20px;
         color: $dark;
+        &__button{
+          padding: 15px;
+          border-radius: 15px;
+          margin:5px;
+          border: none;
+          background-color: $dark;
+          color: white;
+          height: 50px;
+        }
+        &__button:hover{
+          background-color: white;
+          color: $dark;
+        }
     }
     ul{
         width: 33%;
@@ -257,6 +270,16 @@
         }
       }
   }
+}
 
+//Styling page for Analytics
+.analytics{
+  width: 70%;
+  padding-top: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin:auto;
+  min-height: 100vh;
 
 }

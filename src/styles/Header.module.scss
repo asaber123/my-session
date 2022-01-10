@@ -29,6 +29,13 @@ a{
         &__logo{
             padding-left:20px;
             font-size: 1.7em;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            img{
+                width: 90px;
+                margin-right: 20px;
+            }
         }
         &__nav{
             margin-right: 400px;
