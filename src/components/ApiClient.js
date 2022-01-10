@@ -1,10 +1,15 @@
+
+
 //Here I make all the Request to the API.
 
 //In all requests I'm also sending in a authorization with token in the header. 
 //This checks so that the client that is making the request is logged in. 
 //This makes the requests safter. 
 //Headers are also set to json format.
-const BASE_URL = System.getenv("IS_RUNNING_ON_HEROKU") === "TRUE"? `https://mysessionlogapi.herokuapp.com/api/`: `http://localhost:3001/api/`;
+
+
+//const BASE_URL = `http://localhost:3001/api/`;
+const BASE_URL = `https://mysessionlogapi.herokuapp.com/api/`;
 
 export async function getRoutes(){
     const response = await fetch(BASE_URL, {
