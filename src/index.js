@@ -6,8 +6,8 @@ import axios from 'axios';
 
 //This is the paga connecting the components to the HTML document/dom
 
-//const BASE_URL = `http://localhost:3001/`;
-const BASE_URL = `https://mysessionlogapi.herokuapp.com/`;
+const BASE_URL = `http://localhost:3001/`;
+//const BASE_URL = `https://mysessionlogapi.herokuapp.com/`;
 
 //TODO dont use axios
 axios.defaults.baseURL=BASE_URL;

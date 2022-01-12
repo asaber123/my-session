@@ -8,8 +8,8 @@
 //Headers are also set to json format.
 
 
-//const BASE_URL = `http://localhost:3001/api/`;
-const BASE_URL = `https://mysessionlogapi.herokuapp.com/api/`;
+const BASE_URL = `http://localhost:3001/api/`;
+//const BASE_URL = `https://mysessionlogapi.herokuapp.com/api/`;
 
 export async function getRoutes(){
     const response = await fetch(BASE_URL, {

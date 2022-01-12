@@ -126,7 +126,7 @@ class LogForm extends Component {
                         <option value="undefined">Project/undefined</option>
                     </select>
 
-                    <select class="form-select" aria-label="Default select example"value={this.state.typeOfRoute} onChange={this.changeTypeOfRoute}>
+                    <select class="form-select" aria-label="Default select example"value={this.state.location} onChange={this.changeLocation}>
                         <option selected>Location:</option>
                         <option value="Indoor">Indoor</option>
                         <option value="Outdoor">Outdoor</option>
