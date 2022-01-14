@@ -63,7 +63,7 @@ const LineChart = () => {
         display: true,
         title: {
           display: true,
-          text: 'Location of climbing routes',
+          text: 'Amount of climbing routes climbed per month',
           color: '#395B62',
           font: {
             size: 20,
