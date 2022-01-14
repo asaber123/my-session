@@ -9,10 +9,10 @@
 
 
 //const BASE_URL = `http://localhost:3001/api/`;
-const BASE_URL = `https://mysessionlogapi.herokuapp.com/api/`;
+//const BASE_URL = `https://mysessionlogapi.herokuapp.com/api/`;
 
 export async function getRoutes(){
-    const response = await fetch(BASE_URL, {
+    const response = await fetch('api/', {
             method: "GET",
             headers: headers()
         });
@@ -21,7 +21,7 @@ export async function getRoutes(){
 }
 
 export async function postRoute(climbingLog){
-    const response = await fetch(BASE_URL, {
+    const response = await fetch('api/', {
         body: JSON.stringify(climbingLog),
         method: "POST",
         headers: headers()
@@ -37,7 +37,7 @@ export async function postRoute(climbingLog){
 }
 
 export async function updateRoute(id, climbingLog){
-    const response = await fetch(`${BASE_URL}${id}`, {
+    const response = await fetch(`'api/'${id}`, {
         body: JSON.stringify(climbingLog),
         method: "PATCH",
         headers: headers()
@@ -46,7 +46,7 @@ export async function updateRoute(id, climbingLog){
 }
 
 export async function deleteRoute(id){
-    return await fetch(`${BASE_URL}${id}`, {
+    return await fetch(`'api/'${id}`, {
         method: "DELETE",
         headers: headers()
     });
