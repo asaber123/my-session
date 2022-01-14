@@ -1,7 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import '../App';
 import { postRoute, updateRoute } from './ApiClient';
+import DateTimePicker from 'react-datetime-picker';
+import DatePicker from 'react-datepicker';
+import "react-datepicker/dist/react-datepicker.css";
+
+
+
+
 
 //Creating a class with props, that will change depending if the user fill the form. 
 class LogForm extends Component {
@@ -11,16 +18,17 @@ class LogForm extends Component {
             grade: "",
             name: "",
             location: "",
-            date: "",
+            startDate: new Date(),
             typeOfRoute: "",
         }
         //If the user fill the form and press submit the value that was changed in the forms will be set. 
         this.changeGrade = this.changeGrade.bind(this)
         this.changeName = this.changeName.bind(this)
         this.changeLocation = this.changeLocation.bind(this)
-        this.changeDate = this.changeDate.bind(this)
+        this.handleChange = this.handleChange.bind(this);
         this.changeTypeOfRoute = this.changeTypeOfRoute.bind(this)
         this.onSubmit = this.onSubmit.bind(this)
+
 
     }
     //This runns if the user clicked "update" on any log. 
@@ -56,9 +64,9 @@ class LogForm extends Component {
             location: event.target.value
         })
     }
-    changeDate(event) {
+    handleChange(date) {
         this.setState({
-            date: event.target.value
+            startDate: date        
         })
     }
     changeTypeOfRoute(event) {
@@ -76,8 +84,9 @@ class LogForm extends Component {
             grade: this.state.grade,
             name: this.state.name,
             location: this.state.location,
-            date: this.state.date,
+            date: this.state.startDate,
             typeOfRoute: this.state.typeOfRoute
+            
         }
         console.log(climbingLog)
         if (this.props.routeToUpdate) {
@@ -108,8 +117,18 @@ class LogForm extends Component {
                         value={this.state.name}
                         className='form-control form-group' />
 
-
-                    <select class="form-select" aria-label="Default select example"value={this.state.grade} onChange={this.changeGrade}>
+                    <label>Date:</label>
+                    {/* On all inputs, the function that is on the onchange will be started when the user starts filling the form */}
+                    {/* The value will be set to the state */}
+                    <div>
+                        <DatePicker
+                            selected={this.state.startDate}
+                            onChange={this.handleChange}
+                            name="startDate"
+                            dateFormat="MM/dd/yyyy"
+                        />
+                    </div>
+                    <select class="form-select" aria-label="Default select example" value={this.state.grade} onChange={this.changeGrade}>
                         <option selected>Grade:</option>
                         <option value="6a">6a</option>
                         <option value="6b">6b</option>
@@ -126,14 +145,16 @@ class LogForm extends Component {
                         <option value="undefined">Project/undefined</option>
                     </select>
 
-                    <select class="form-select" aria-label="Default select example"value={this.state.location} onChange={this.changeLocation}>
+                    <select class="form-select" aria-label="Default select example" value={this.state.location} onChange={this.changeLocation}>
                         <option selected>Location:</option>
                         <option value="Indoor">Indoor</option>
                         <option value="Outdoor">Outdoor</option>
                     </select>
 
 
-                    <select class="form-select" aria-label="Default select example"value={this.state.typeOfRoute} onChange={this.changeTypeOfRoute}>
+
+
+                    <select class="form-select" aria-label="Default select example" value={this.state.typeOfRoute} onChange={this.changeTypeOfRoute}>
                         <option selected>Type of route:</option>
                         <option value="Traditional">Traditional</option>
                         <option value="Sport-climbing">Sport-climbing</option>

@@ -34,18 +34,7 @@ function Start(props) {
                         <img src={logo} alt="Logo" /> <h1>MyLog</h1>
                     </div>
                     {form}
-                    <div className={classes.start__header__slogan3}>
-                        <img src={Improve} />
-                        <p>Improve</p>
-                    </div>
-                    <div className={classes.start__header__slogan2}>
-                        <img src={Track} />
-                        <p>Analyze</p>
-                    </div>
-                    <div className={classes.start__header__slogan1}>
-                        <img src={Log} />
-                        <p>Track</p>
-                    </div>
+
                 </div>
                 <div className={classes.start__introText}>
                     <h2>What is my log?</h2>

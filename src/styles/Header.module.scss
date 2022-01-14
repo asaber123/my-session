@@ -11,14 +11,16 @@ a{
 
 
 .header{
-    background-color: $dark;
-    height: 100px;
+    background-color: $darkTransparent;
+    height: 70px;
     width: 100%;
     margin: 0;
     top:0;
+    position: fixed;
+    
 
     &__content{
-        color: $light;
+        color: white;
         margin:0, auto;
         height: 100%;
         width: 100%;
@@ -35,16 +37,17 @@ a{
             flex-direction: row;
             align-items: center;
             img{
-                width: 90px;
+                width: 60px;
                 margin-right: 20px;
             }
         }
         &__nav{
-            margin-right: 400px;
+            margin-right: 450px;
             display: flex;
             align-items: center;
             position: relative;
             width: 400px;
+            font-size: 1.2em;
 
    
             @include phone{
@@ -87,10 +90,11 @@ a{
   
                 }
                 a{
-                    color: $light;
+                    color: white;
                 }
 
                 a:hover{
+                    text-decoration: underline;
                     color: white;
                 }
             

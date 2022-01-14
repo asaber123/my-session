@@ -5,17 +5,17 @@
 
 // Styling history page
 .history{
-    width: 900px;
+    width: 1000px;
     padding:50px;
     margin: auto;
-    background: $dark;
-    margin-top: 100px;
+    padding-top: 200px;
     margin-bottom: 200px;
-    color:$light;
+    color:$dark;
     border-radius: 10px;
     @include tablet{
       width: 90%;
     }
+    
 
     &_previousLogs{
       margin-top: 100px;
@@ -23,36 +23,48 @@
 
 
     &__log{
-        background-color: $light;
+        background-color: $dark;
         border-radius: 7px;
         margin-top: 30px;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         padding: 20px;
-        color: $dark;
-        @include tablet{
+        color: white;
+        @include phone{
           flex-direction: column;
         }
 
-        &__button{
-          padding: 15px;
-          border-radius: 15px;
-          margin:5px;
-          border: none;
-          background-color: $dark;
-          color: white;
-          height: 50px;
+        &__buttons{
+          button{
+            padding: 15px;
+            border-radius: 7px;
+            margin:5px;
+            border: 2px solid $dark;
+            background-color:white;
+            color: $dark;
+            padding: 10px;
+            font-weight:400;
+            width: 90px;
+          }
+          button:hover{
+            background-color: $dark;
+            color: white;
+            border: 2px solid white;
+          }
         }
-        &__button:hover{
-          background-color: white;
-          color: $dark;
-        }
+
     }
     ul{
         width: 33%;
-        @include tablet{
+        list-style: none;
+
+        @include phone{
           width: 100%;
+
+        }
+        li{
+          margin-bottom: 20px;
         }
     }
 
@@ -253,7 +265,7 @@
         margin-bottom: 40px;
         @include tablet{
           grid-column: 3/7;
-          grid-row: 4/7;
+          grid-row: 4/9;
         }
         a{
           text-decoration: underline;
@@ -264,39 +276,7 @@
         }
 
       }
-      &__slogan1{
-      grid-column: 7/9;
-      grid-row:6/7;
-      font-weight: bold;
-      font-size: 1.5em;
-      margin-left: 40px;
-      @include tablet{
-        display: none;
-      }
 
-      }
-      &__slogan2{
-      grid-column: 7/9;
-      grid-row:5/6;
-      font-weight: bold;
-      font-size: 1.5em;
-      margin-left: 40px;
-      @include tablet{
-        display: none;
-      }
-
-      }
-      &__slogan3{
-      grid-column:7/9;
-      grid-row:4/5;
-      font-weight: bold;
-      font-size: 1.5em;
-      margin-left: 40px;
-      @include tablet{
-        display: none;
-      }
-
-      }
   }
   &__introText{
     // margin-top: 50px;
@@ -364,12 +344,16 @@
 //Styling page for Analytics
 .analytics{
   width: 70%;
-  padding-top: 70px;
+  padding-top: 150px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin:auto;
   min-height: 100vh;
+  &_chart{
+    margin-top: 50px;
+    margin-bottom: 70px;
+  }
 
   @include phone{
     padding-top: 0px;

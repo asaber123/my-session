@@ -40,19 +40,21 @@ function History() {
                 <ul>
                     {/* using moment package to format date */}
                     <li><b>{moment(climbingRoute.date).format('LL')}</b></li>
-                    <li><b>Grade:</b> {climbingRoute.grade}</li>
                 </ul>
                 <ul>
-                    <li><b>Name of route:</b> {climbingRoute.name}</li>
-                    <li><b>Type of route:</b> {climbingRoute.grade}</li>
+                    <li><b>Name of route: <br></br></b> {climbingRoute.name}</li>
+                    <li><b>Type of route:</b> <br></br>{climbingRoute.grade}</li>
                 </ul>
                 <ul>
-                    <li> <b>Location: </b></li>
-                    <li>{climbingRoute.location}</li>
+                    <li> <b>Location: <br></br></b>{climbingRoute.location}</li>
+                    <li><b>Grade:</b> <br></br>{climbingRoute.grade}</li>
                 </ul>
-                <button class={classes.history__log__button} onClick={() => { deleteLog(climbingRoute._id) }}>Delete</button>
-                {/* When a user press update log, the whole object will be sent to the function "updateLog" */}
-                <button class={classes.history__log__button} onClick={() => { updateLog(climbingRoute) }}>Update</button>
+                <div class={classes.history__log__buttons}>
+                    <button class={classes.history__log__button} onClick={() => { deleteLog(climbingRoute._id) }}>Delete</button>
+                    {/* When a user press update log, the whole object will be sent to the function "updateLog" */}
+                    <button class={classes.history__log__button} onClick={() => { updateLog(climbingRoute) }}>Update</button>
+                </div>
+
             </div>
 
 

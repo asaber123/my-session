@@ -1,16 +1,26 @@
 import React from 'react';
 import '../../App';
 import BarChart from './charts/BarChart';
-//import ScatterGraph from './charts/Scatter'
-
+import PieChart from './charts/Pie';
 import classes from '../../styles/Layout.module.scss';
+import { Pie } from 'react-chartjs-2';
+import LineChart from './charts/LineChart';
+
 
 
 function Analytics() {
     return (
         <div className={classes.analytics}>
+            <h2>Analytics</h2>
+            <div className={classes.analytics_chart}>
             <BarChart />
-            {/* <ScatterGraph/> */}
+            </div>
+            <div className={classes.analytics_chart}>
+            <PieChart/>
+            </div>
+            <div className={classes.analytics_chart}>
+            <LineChart/>
+            </div>
         </div>
     )
 }
