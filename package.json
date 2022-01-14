@@ -1,6 +1,7 @@
 {
   "name": "my-session",
   "version": "0.1.0",
+  "proxy": "https://mysessionlogapi.herokuapp.com/",
   "engines": {
     "node": "14.x"
   },
