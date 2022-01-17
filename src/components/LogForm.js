@@ -66,7 +66,7 @@ class LogForm extends Component {
     }
     handleChange(date) {
         this.setState({
-            startDate: date        
+            date: date        
         })
     }
     changeTypeOfRoute(event) {

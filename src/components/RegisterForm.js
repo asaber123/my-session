@@ -55,7 +55,10 @@ class Register extends Component {
         axios.post('/auth/signup', registered)
             .then((response) => {
                 console.log(response)
+                //Redirectiing user to logged in page
+                window.location = '/';
             })
+
             .catch((err) => {
                 // The request was made and the server responded with a status code
                 // that falls out of the range of 2xx
@@ -66,12 +69,11 @@ class Register extends Component {
                     alert(err.response.data.message)
                 }
             })
-      //Redirectiing user to logged in page
-        window.location = '/'
+
 
     }
 
-//This is the structure of the form in html
+    //This is the structure of the form in html
     render() {
         return (
             <div className='formDiv'>
