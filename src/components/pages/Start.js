@@ -13,7 +13,7 @@ function Start(props) {
     let form;
     if (isRegister) {
         form = <div className={classes.start__header__loginform}>
-            <h2>Login</h2>
+            <h2>Register</h2>
             <RegisterForm />
         </div>
     } else {
