@@ -34,8 +34,7 @@ function History() {
 
 
     // //Making an array that contains all data that has been fetched. 
-
-    const arr = climbingRoutes.map((climbingRoute => {
+    const arr = climbingRoutes.reverse().map((climbingRoute => {
         return (
             <div key={climbingRoute._id} className={classes.history__log}>
                 <ul>
