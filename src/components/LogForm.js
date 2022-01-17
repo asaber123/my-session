@@ -25,7 +25,7 @@ class LogForm extends Component {
         this.changeGrade = this.changeGrade.bind(this)
         this.changeName = this.changeName.bind(this)
         this.changeLocation = this.changeLocation.bind(this)
-        this.handleChange = this.handleChange.bind(this);
+        this.changeDate = this.changeDate.bind(this);
         this.changeTypeOfRoute = this.changeTypeOfRoute.bind(this)
         this.onSubmit = this.onSubmit.bind(this)
 
@@ -64,9 +64,9 @@ class LogForm extends Component {
             location: event.target.value
         })
     }
-    handleChange(date) {
+    changeDate(date) {
         this.setState({
-            date: date        
+            startDate: date        
         })
     }
     changeTypeOfRoute(event) {
@@ -88,8 +88,8 @@ class LogForm extends Component {
             typeOfRoute: this.state.typeOfRoute
             
         }
-        // console.log(climbingLog)
-        //If the props that has been sent is updated then update route with this id and add the values to the rewuest. 
+        console.log(climbingLog)
+        //If the props that has been sent is updated then update route with
         if (this.props.routeToUpdate) {
             await updateRoute(this.props.routeToUpdate._id, climbingLog)
         } else {
@@ -124,13 +124,13 @@ class LogForm extends Component {
                     <div>
                         <DatePicker
                             selected={this.state.startDate}
-                            onChange={this.handleChange}
+                            onChange={this.changeDate}
                             name="startDate"
                             dateFormat="MM/dd/yyyy"
                         />
                     </div>
-                    <select class="form-select" aria-label="Default select example" value={this.state.grade} onChange={this.changeGrade}>
-                        <option selected>Grade:</option>
+                    <select className="form-select" aria-label="Default select example" value={this.state.grade} onChange={this.changeGrade}>
+                        <option >Grade:</option>
                         <option value="6a">6a</option>
                         <option value="6b">6b</option>
                         <option value="6c">6c</option>
@@ -146,8 +146,8 @@ class LogForm extends Component {
                         <option value="undefined">Project/undefined</option>
                     </select>
 
-                    <select class="form-select" aria-label="Default select example" value={this.state.location} onChange={this.changeLocation}>
-                        <option selected>Location:</option>
+                    <select className="form-select" aria-label="Default select example" value={this.state.location} onChange={this.changeLocation}>
+                        <option >Location:</option>
                         <option value="Indoor">Indoor</option>
                         <option value="Outdoor">Outdoor</option>
                     </select>
@@ -155,8 +155,8 @@ class LogForm extends Component {
 
 
 
-                    <select class="form-select" aria-label="Default select example" value={this.state.typeOfRoute} onChange={this.changeTypeOfRoute}>
-                        <option selected>Type of route:</option>
+                    <select className="form-select" aria-label="Default select example" value={this.state.typeOfRoute} onChange={this.changeTypeOfRoute}>
+                        <option >Type of route:</option>
                         <option value="Traditional">Traditional</option>
                         <option value="Sport-climbing">Sport-climbing</option>
                         <option value="Bouldering">Bouldering</option>

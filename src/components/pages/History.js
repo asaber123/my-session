@@ -50,10 +50,10 @@ function History() {
                     <li> <b>Location: <br></br></b>{climbingRoute.location}</li>
                     <li><b>Grade:</b> <br></br>{climbingRoute.grade}</li>
                 </ul>
-                <div class={classes.history__log__buttons}>
-                    <button class={classes.history__log__button} onClick={() => { deleteLog(climbingRoute._id) }}>Delete</button>
+                <div className={classes.history__log__buttons}>
+                    <button className={classes.history__log__button} onClick={() => { deleteLog(climbingRoute._id) }}>Delete</button>
                     {/* When a user press update log, the whole object will be sent to the function "updateLog" */}
-                    <button class={classes.history__log__button} onClick={() => { updateLog(climbingRoute) }}>Update</button>
+                    <button className={classes.history__log__button} onClick={() => { updateLog(climbingRoute) }}>Update</button>
                 </div>
 
             </div>
