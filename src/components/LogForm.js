@@ -18,7 +18,7 @@ class LogForm extends Component {
             grade: "",
             name: "",
             location: "",
-            startDate: new Date(),
+            date: new Date(),
             typeOfRoute: "",
         }
         //If the user fill the form and press submit the value that was changed in the forms will be set. 
@@ -66,7 +66,7 @@ class LogForm extends Component {
     }
     changeDate(date) {
         this.setState({
-            startDate: date        
+            date: date        
         })
     }
     changeTypeOfRoute(event) {
@@ -84,7 +84,7 @@ class LogForm extends Component {
             grade: this.state.grade,
             name: this.state.name,
             location: this.state.location,
-            date: this.state.startDate,
+            date: this.state.date,
             typeOfRoute: this.state.typeOfRoute
             
         }
@@ -123,9 +123,9 @@ class LogForm extends Component {
                     {/* The value will be set to the state */}
                     <div>
                         <DatePicker
-                            selected={this.state.startDate}
+                            selected={this.state.date}
                             onChange={this.changeDate}
-                            name="startDate"
+                            name="date"
                             dateFormat="MM/dd/yyyy"
                         />
                     </div>

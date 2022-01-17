@@ -32,8 +32,8 @@ export default class Home extends Component {
                             </div>
                         </div>
                         <div className={classes.home__introText}>
-                            <h2>What is my log?</h2>
-                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem</p>
+                            <h2>What is myLog?</h2>
+                            <p>MyLog is an webb-application that allows you to log and track your climbing progression. Keep track and analyse your sucess!</p>
                         </div>
                         <div className={classes.home__featuresSection}>
                             <h2>Feautures</h2>
@@ -45,19 +45,19 @@ export default class Home extends Component {
                                 <div className={classes.home__featuresSection__features__text}>
                                     <div className={classes.home__featuresSection__features__text__line}>
                                         <div className={classes.home__featuresSection__features__text__line__checkmark}> <img src={Checkmark} /><h3>Log your routes</h3> </div>
-                                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.  </p>
+                                        <p> Log the name of your route, time, type of route, and location </p>
                                     </div>
                                     <div className={classes.home__featuresSection__features__text__line}>
                                     <div className={classes.home__featuresSection__features__text__line__checkmark}> <img src={Checkmark} /><h3>Track your progress</h3> </div>
-                                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.  </p>
+                                        <p>Read your preogression over time </p>
                                     </div>
                                     <div className={classes.home__featuresSection__features__text__line}>
                                     <div className={classes.home__featuresSection__features__text__line__checkmark}> <img src={Checkmark} /><h3>Analyze your history</h3> </div>
-                                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.  </p>
+                                        <p>Analyze the the division of routes you made.  </p>
                                     </div>
                                     <div className={classes.home__featuresSection__features__text__line}>
                                     <div className={classes.home__featuresSection__features__text__line__checkmark}> <img src={Checkmark} /><h3>Exalarate your progression</h3> </div>    
-                                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.  </p>
+                                        <p>Set goals and track your progression  </p>
                                     </div>
                                 </div>
                             </div>
