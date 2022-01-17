@@ -6,7 +6,7 @@ import classes from '../../styles/Layout.module.scss';
 import { Pie } from 'react-chartjs-2';
 import LineChart from './charts/LineChart';
 
-
+//This page all the statistics will be shown. All diffrenet charts is imported as they are separate components. 
 
 function Analytics() {
     return (

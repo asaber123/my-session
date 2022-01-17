@@ -25,7 +25,6 @@ function Header() {
         setMenuOpen((p) => !p);
 
     }
-    //Styling to header
     return (
         <header className={classes.header}>
             <div className={classes.header__content}>
@@ -35,7 +34,6 @@ function Header() {
                         <h2>MyLog</h2>
                     </div>
                 </Link>
-
                 <nav className={`${classes.header__content__nav} ${menuOpen ? classes.isMenu : ""}`}>
                     <ul>
                         {/* Creating links to the different pages.  */}
@@ -52,6 +50,7 @@ function Header() {
                     </ul>
                 </nav>
                 <div className={classes.header__content__toggle}>
+                    {/* Activating a funciton if the menu button is clicked, to display and not display menu */}
                     {menuOpen ? (
                         <BiMenu onClick={menuTogglehandler} />
                     ) : (

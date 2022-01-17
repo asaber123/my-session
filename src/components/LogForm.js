@@ -79,7 +79,7 @@ class LogForm extends Component {
         //Doing a prevent Default to prevent page refresh.
         event.preventDefault()
         //Evetything that the user has typed in into the input field and then sent into the onchange funciton is now stored in the 
-        //varibale registered whenn submit button has been clicked. 
+        //varibale registered when submit button has been clicked. 
         const climbingLog = {
             grade: this.state.grade,
             name: this.state.name,
@@ -88,7 +88,8 @@ class LogForm extends Component {
             typeOfRoute: this.state.typeOfRoute
             
         }
-        console.log(climbingLog)
+        // console.log(climbingLog)
+        //If the props that has been sent is updated then update route with this id and add the values to the rewuest. 
         if (this.props.routeToUpdate) {
             await updateRoute(this.props.routeToUpdate._id, climbingLog)
         } else {

@@ -1,6 +1,6 @@
 
 
-//Here I make all the Request to the API.
+//Here I make all the Request of users logs, to the API.
 
 //In all requests I'm also sending in a authorization with token in the header. 
 //This checks so that the client that is making the request is logged in. 

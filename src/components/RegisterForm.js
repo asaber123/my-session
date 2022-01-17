@@ -66,7 +66,8 @@ class Register extends Component {
                     console.log(err.response.data.message);
                     console.log(err.response.status);
                     console.log(err.response.headers);
-                    alert(err.response.data.message)
+                    console.log(err.response.data.message);
+                    alert(err.response.data.message);
                 }
             })
 

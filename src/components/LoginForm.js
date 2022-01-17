@@ -33,7 +33,7 @@ class Login extends Component {
             password: event.target.value
         })
     }
-    //As a ´default, the whole page refresh when submit button is clicked. This function prevents it. We want the peron to be re-directed to the login page. 
+    //As a default, the whole page refresh when submit button is clicked. This function prevents it. We want the peron to be re-directed to the login page. 
     onSubmit(event) {
         event.preventDefault()
         //Evetything that the user has typed in into the input field and then sent into the onchange funciton is now stored in the 
@@ -99,6 +99,7 @@ class Login extends Component {
                         <br></br>
                         <input type='submit' className='btn btn-success' value='submit' />
                         <br></br><br></br>
+                        {/* The re-direction to register will activate the register form which will make the register form be displayed instead of the login form.  */}
                         <p>Not a user yet? <a><Link to='/register'>Register</Link></a> </p>
 
 

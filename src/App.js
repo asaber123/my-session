@@ -10,7 +10,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 //This is the file where all the "pages" are set and their paths to be reached. 
 //I use Swich to be able to swich the pages dependning on the paths. 
-//To noit be able to go to pages without be logged in, I check if the session has a toker. 
+//To not be able to go to pages without be logged in, I check if the session has a toker. 
 //If a toker i set, then the user is logged in and are able to go into the different pages. 
 //If not, the user will be re-directed to login or register page. 
 
@@ -34,6 +34,7 @@ function App() {
       </Router>
     )
   }
+  //If user is not logged in, then only theese pages can be reached. 
   else {
     return (
       <Router>

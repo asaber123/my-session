@@ -5,6 +5,7 @@ import moment from 'moment';
 import LogForm from '../LogForm';
 import { deleteRoute, getRoutes } from '../ApiClient';
 
+//This page is where user can se previous loggs, delete, update and add new logs. A seperate component "LogForm", is the form for posting and updating loggs. 
 
 function History() {
     const [climbingRoutes, setClimbingRoutes] = useState([]);
@@ -60,29 +61,28 @@ function History() {
 
         )
     }));
-    const token = localStorage.getItem('token');
-    const username = localStorage.getItem('username')
+    //If the form that is displayed updating a route, then the title will be changed. 
     const header = routeToUpdate ? "Update climbing route:" : "Add a new climbing route:"
-    if (token) {
-        console.log("rendering")
-        return (
-            <main>
-                <div className={classes.history}>
-                    <div className={classes.history_newLog}>
 
-                        <h2>{header}</h2>
-                        <LogForm routeToUpdate={routeToUpdate} />
-                    </div>
+    return (
+        <main>
+            <div className={classes.history}>
+                <div className={classes.history_newLog}>
 
-                    <div className={classes.history_previousLogs}>
-                        <h2>My log:</h2>
-                        {arr}
-                    </div>
-
+                    <h2>{header}</h2>
+                    {/* This form is imported from LogForm */}
+                    <LogForm routeToUpdate={routeToUpdate} />
                 </div>
-            </main>
-        );
-    }
+
+                <div className={classes.history_previousLogs}>
+                    <h2>My log:</h2>
+                    {arr}
+                </div>
+
+            </div>
+        </main>
+    );
+
 }
 
 

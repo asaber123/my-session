@@ -5,6 +5,8 @@ import { getRoutes } from '../../ApiClient';
 import classes from '../../../styles/Layout.module.scss';
 
 
+//Using Chart.js package to crate the charts. I have been using their tutorial on their website to set them up and been using fetched data to analyse the logs.
+
 //Registaring the charts
 ChartJS.register(
   CategoryScale,
@@ -25,11 +27,13 @@ const BarChart = () => {
     setClimbingRoutes(routes)
   }
 
+    //Getting the amount of times different grades is stored. 
   const labelsAndCounts = {}
   climbingRoutes?.map(x => {
     labelsAndCounts[x.grade] = (labelsAndCounts[x.grade] || 0) + 1
   })
 
+  //Object.keys gives the unique variables. Object.values gives the amount of times the values are stored. 
   const data = {
     labels: Object.keys(labelsAndCounts),
     datasets: [{

@@ -26,12 +26,14 @@ const LineChart = () => {
     setClimbingRoutes(routes)
   }
 
+      //Getting the amount of times different a log with a specific date is stored. 
+  //Changeing the format to be only months, so that the calculation will be for only each month. 
   const labelsAndCounts = {}
   climbingRoutes?.map(x => {
     labelsAndCounts[moment(x.date).format('MMM')] = (labelsAndCounts[moment(x.date).format('MMM')] || 0) + 1
   })
 
-
+  //Object.keys gives the unique variables. Object.values gives the amount of times the values are stored. 
   const data = {
     labels: Object.keys(labelsAndCounts),
     datasets: [{

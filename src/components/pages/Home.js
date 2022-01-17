@@ -8,7 +8,7 @@ import Log from '../img/writing.png';
 import Checkmark from '../img/check-mark.png';
 
 
-
+//This page is shown when user is logged in. 
 
 export default class Home extends Component {
 

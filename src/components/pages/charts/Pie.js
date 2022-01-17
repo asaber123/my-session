@@ -27,11 +27,12 @@ const PieChart = () => {
       setClimbingRoutes(routes)
     }
   
+    //Getting the amount of times different location is stored. 
     const labelsAndCounts = {}
     climbingRoutes?.map(x => {
       labelsAndCounts[x.location] = (labelsAndCounts[x.location] || 0) + 1
     })
-  
+    //Object.keys gives the unique variables. Object.values gives the amount of times the values are stored. 
     const data = {
       labels:Object.keys(labelsAndCounts),
       datasets: [{
