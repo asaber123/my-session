@@ -40,7 +40,7 @@ class LogForm extends Component {
                 grade: this.props.routeToUpdate.grade,
                 name: this.props.routeToUpdate.name,
                 location: this.props.routeToUpdate.location,
-                date: this.props.routeToUpdate.date,
+                date: new Date(this.props.routeToUpdate.date),
                 typeOfRoute: this.props.routeToUpdate.typeOfRoute,
             })
         }
@@ -126,7 +126,7 @@ class LogForm extends Component {
                             selected={this.state.date}
                             onChange={this.changeDate}
                             name="date"
-                            dateFormat="MM/dd/yyyy"
+                     
                         />
                     </div>
                     <select className="form-select" aria-label="Default select example" value={this.state.grade} onChange={this.changeGrade}>
