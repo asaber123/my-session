@@ -43,7 +43,7 @@ function History() {
                 </ul>
                 <ul>
                     <li><b>Name of route: <br></br></b> {climbingRoute.name}</li>
-                    <li><b>Type of route:</b> <br></br>{climbingRoute.grade}</li>
+                    <li><b>Type of route:</b> <br></br>{climbingRoute.typeOfRoute}</li>
                 </ul>
                 <ul>
                     <li> <b>Location: <br></br></b>{climbingRoute.location}</li>
