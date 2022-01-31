@@ -5,6 +5,10 @@ import LoginForm from '../LoginForm';
 import logo from '../img/myLog.png';
 import Checkmark from '../img/check-mark.png';
 import RegisterForm from '../RegisterForm';
+import pieChart from '../img/pie-chart.png';
+import barChart from '../img/bar-chart.png';
+
+
 
 
 
@@ -41,7 +45,8 @@ function Start(props) {
 
                     <div className={classes.home__featuresSection__features}>
                         <div className={classes.home__featuresSection__features__image}>
-
+                        <img src={barChart} alt="barchart" /> 
+                        <img src={pieChart} alt="piechart" /> 
                         </div>
                         <div className={classes.home__featuresSection__features__text}>
                             <div className={classes.home__featuresSection__features__text__line}>

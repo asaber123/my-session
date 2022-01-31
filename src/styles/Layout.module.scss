@@ -61,7 +61,7 @@
 
         @include phone{
           width: 100%;
-
+          padding-left:0px;
         }
         li{
           margin-bottom: 20px;
@@ -175,24 +175,20 @@
           }
 
           &__image{
-            background-image: url(../components/img/statistics.png);
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-            border: 2px solid black;
-            background-position: center;
-            border-radius: 25px;
             width: 350px;
-            height: 500px;
             margin-bottom: 50px;
             margin: auto;
+            display: flex;
+            flex-direction: column;
+            img{
+              width: 100%;
+            }
             @include phone{
               width: 100%;
             }
           }
           &__text{
             width: 40%;
-            margin-left: 40px;
             text-align: left;
             margin: auto;
             @include tablet{
@@ -200,7 +196,7 @@
               margin-top: 50px;
             }
             &__line{
-              margin-bottom: 20px;
+              margin-bottom: 50px;
               &__checkmark{
                 display: flex;
                 flex-direction: row;
@@ -244,13 +240,24 @@
           grid-column: 3/7;
           grid-row: 2/3;
         }
+        @include phone{
+          grid-column: 2/8;
+          grid-row: 2/3;
+        }
+
         h1{
           font-size: 3.5em;
+          @include phone{
+            font-size: 2.5em;
+          }
         }
         img{
           width: 100px;
           height: auto;
           margin-right: 30px;
+          @include phone{
+            width: 80px;
+          }
         }  
       }
       &__loginform{
@@ -265,6 +272,10 @@
         margin-bottom: 40px;
         @include tablet{
           grid-column: 3/7;
+          grid-row: 4/9;
+        }
+        @include phone{
+          grid-column: 2/8;
           grid-row: 4/9;
         }
         a{
@@ -318,21 +329,23 @@
         }
 
         &__image{
-          background-image: url(../components/img/statistics.png);
-          background-repeat: no-repeat;
-          background-size: cover;
-          background-position: center;
-          border: 2px solid black;
-          background-position: center;
-          border-radius: 25px;
           width: 350px;
-          
+          img{
+            width: 100px;
+            height: auto;
+            margin-right: 30px;
+          } 
 
         }
         &__text{
           width: 40%;
           margin-left: 40px;
           text-align: left;
+          @include phone{
+            width: 90%;
+            margin-left: 0px;
+
+          }
           &__line{
             margin-bottom: 20px;
           }
